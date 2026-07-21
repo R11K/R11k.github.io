@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rikaysh Bidani — Mechatronics Engineering</title>
+<meta name="description" content="Rikaysh Bidani — Mechatronics Engineering student at York University. Robotics, automation, and agricultural technology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sheet: #F7F6F1;
+    --ink: #1B2420;
+    --field: #2E5339;
+    --steel: #7C8582;
+    --line: #C9CCC4;
+    --safety: #E8632B;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --display: "Archivo", sans-serif;
+    --body: "Public Sans", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+  body {
+    background: var(--sheet);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--field); }
+  a:focus-visible { outline: 2px solid var(--safety); outline-offset: 3px; }
+
+  .sheet {
+    max-width: 1080px;
+    margin: 24px auto 48px;
+    border: 1.5px solid var(--ink);
+    background: var(--sheet);
+  }
+  @media (max-width: 720px) { .sheet { margin: 10px 10px 32px; } }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 28px;
+    border-bottom: 1.5px solid var(--ink);
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  header .mark { font-weight: 500; letter-spacing: 0.06em; }
+  header nav a {
+    color: var(--ink);
+    text-decoration: none;
+    margin-left: 22px;
+    letter-spacing: 0.04em;
+  }
+  header nav a:hover { color: var(--safety); }
+  @media (max-width: 560px) {
+    header { flex-direction: column; gap: 8px; }
+    header nav a { margin: 0 10px; }
+  }
+
+  .hero { padding: 64px 28px 0; }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    max-width: 14ch;
+  }
+  .hero h1 .accent { color: var(--field); }
+  .hero .lede {
+    margin-top: 22px;
+    max-width: 58ch;
+    font-size: 1.06rem;
+    color: #3a423e;
+  }
+  .titleblock {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1.5px solid var(--ink);
+  }
+  .titleblock .cell {
+    border-right: 1px solid var(--line);
+    padding: 10px 14px 14px;
+  }
+  .titleblock .cell:last-child { border-right: none; }
+  .titleblock .label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .titleblock .value { font-weight: 600; font-size: 0.95rem; }
+  @media (max-width: 720px) {
+    .titleblock { grid-template-columns: repeat(2, 1fr); }
+    .titleblock .cell { border-bottom: 1px solid var(--line); }
+  }
+
+  section { padding: 56px 28px; border-top: 1.5px solid var(--ink); }
+  .anno {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--safety);
+    display: block;
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+    letter-spacing: -0.01em;
+    margin-bottom: 22px;
+  }
+  .prose p { max-width: 68ch; margin-bottom: 1.1em; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 44px;
+    align-items: start;
+  }
+  @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; } }
+  figure img {
+    width: 100%;
+    display: block;
+    border: 1.5px solid var(--ink);
+  }
+  figcaption {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--steel);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1.5px solid var(--ink);
+    max-width: 780px;
+  }
+  .values-col { padding: 22px 26px; }
+  .values-col + .values-col { border-left: 1.5px solid var(--ink); }
+  .values-col h3 {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--steel);
+    margin-bottom: 12px;
+  }
+  .values-col ul { list-style: none; }
+  .values-col li {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .values-col li:last-child { border-bottom: none; }
+  .values-col li.shared { color: var(--field); font-weight: 700; }
+  @media (max-width: 560px) {
+    .values-grid { grid-template-columns: 1fr; }
+    .values-col + .values-col { border-left: none; border-top: 1.5px solid var(--ink); }
+  }
+  .values-note {
+    margin-top: 18px;
+    max-width: 68ch;
+    color: #3a423e;
+  }
+
+  .strengths-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 44px;
+    align-items: center;
+  }
+  @media (max-width: 820px) { .strengths-wrap { grid-template-columns: 1fr; } }
+  .strength-list { list-style: none; }
+  .strength-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    max-width: 55ch;
+  }
+  .strength-list li:last-child { border-bottom: none; }
+  .strength-list strong {
+    font-family: var(--display);
+    font-weight: 700;
+    display: block;
+  }
+  .strength-list span { color: #3a423e; font-size: 0.97rem; }
+
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+  }
+  .proj {
+    border: 1.5px solid var(--ink);
+    padding: 18px 18px 20px;
+    background: #FDFCF9;
+  }
+  .proj .tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--safety);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .proj h3 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.12rem;
+    margin-bottom: 6px;
+  }
+  .proj p { font-size: 0.93rem; color: #3a423e; line-height: 1.55; }
+
+  footer {
+    border-top: 1.5px solid var(--ink);
+    padding: 34px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  footer .contact { font-family: var(--mono); font-size: 13px; }
+  footer .contact a { margin-right: 20px; text-decoration: none; }
+  footer .contact a:hover { color: var(--safety); }
+  footer .rev {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--steel);
+    letter-spacing: 0.1em;
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <header>
+    <span class="mark">R.BIDANI / MECHATRONICS</span>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#values">Values</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>I turn ideas into <span class="accent">working machines.</span></h1>
+    <p class="lede">Mechatronics Engineering student at York University&rsquo;s Lassonde School of Engineering, building robots and automation for agriculture and education &mdash; currently Robotics &amp; Tech Lead on co-op at STEM Minds Corp.</p>
+
+    <div class="titleblock" aria-label="Profile summary">
+      <div class="cell"><span class="label">Name</span><span class="value">Rikaysh Bidani</span></div>
+      <div class="cell"><span class="label">Program</span><span class="value">Mechatronics, Class of 2028</span></div>
+      <div class="cell"><span class="label">Current Role</span><span class="value">Robotics &amp; Tech Lead, STEM Minds</span></div>
+      <div class="cell"><span class="label">Licence</span><span class="value">Advanced RPAS Pilot</span></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <span class="anno">Sheet 01 &mdash; About Me</span>
+    <h2>From a garage full of tools to farm robotics</h2>
+    <div class="about-grid">
+      <div class="prose">
+        <p>I grew up in York Region, north of Toronto, where two things shaped me: easy access to the outdoors, which made hiking a lifelong way to find peace in a chaotic world, and a garage with enough room to fill with tools and half-finished projects. My mother started her own STEM education business when I was ten because she believed hands-on learning should be accessible &mdash; and she never leaves things half-done. From her I learned that persistence and finishing what you start is a skill, and it&rsquo;s the example I draw on every time I refuse to abandon a challenging project.</p>
+        <p>For a long time I assumed my future was in computer science because I loved video games and wanted to design them. Then I joined my high school&rsquo;s FIRST Robotics Competition (FRC) team, and everything shifted. I spent hours in the workshop with friends, sketching parts and then actually manufacturing them in our machine shop, and discovered the magic of taking an idea from a screen and making it real. The moment it became permanent was the first time I drove the robot we had built &mdash; knowing I had helped create something that complex settled the question, and I changed direction toward mechatronics.</p>
+        <p>That&rsquo;s also why I chose York and the Lassonde School of Engineering. York has an exceptional machine shop and hands-on labs, and because I learn best by doing, a school that lets me build rather than only study is exactly where I belong.</p>
+      </div>
+      <figure onerror="this.style.display='none'">
+        <img src="images/frc-robot.png" alt="The first FRC robot Rikaysh helped build, competing on the field with Team 4343" onerror="this.closest('figure').style.display='none'">
+        <figcaption>FIG. 1 &mdash; The first robot I helped build on FRC Team 4343. The origin point of everything that followed.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="values">
+    <span class="anno">Sheet 02 &mdash; Values</span>
+    <h2>What I optimize for</h2>
+    <div class="values-grid">
+      <div class="values-col">
+        <h3>Work Values</h3>
+        <ul>
+          <li class="shared">Creativity</li>
+          <li>Collaboration</li>
+          <li>Learning</li>
+          <li>Quality</li>
+          <li>Leadership</li>
+        </ul>
+      </div>
+      <div class="values-col">
+        <h3>Lifestyle Values</h3>
+        <ul>
+          <li class="shared">Creativity</li>
+          <li>Adventure</li>
+          <li>Friendship</li>
+          <li>Honesty</li>
+          <li>Freedom</li>
+        </ul>
+      </div>
+    </div>
+    <p class="values-note">Creativity appears in both lists &mdash; it&rsquo;s not just something I want from a job, but a core part of how I want to live. The most surprising result was how highly collaboration and leadership ranked. I&rsquo;d always thought of myself as someone who would rather work alone, but looking back at FRC and other projects, my best work has almost always happened alongside other people.</p>
+  </section>
+
+  <section id="strengths">
+    <span class="anno">Sheet 03 &mdash; Strengths Profile</span>
+    <h2>Weighted toward doing and thinking</h2>
+    <div class="strengths-wrap">
+      <ul class="strength-list">
+        <li><strong>Problem Solver</strong><span>Creativity and a drive for quality &mdash; turning a problem into a working machine.</span></li>
+        <li><strong>Deliverer</strong><span>The honesty and follow-through I learned from my mother.</span></li>
+        <li><strong>Thinker</strong><span>Working out the motion I need, then the simplest mechanism to deliver it.</span></li>
+        <li><strong>Philomath</strong><span>Treating &ldquo;I don&rsquo;t know how yet&rdquo; as a starting point, not a stop sign.</span></li>
+        <li><strong>Peace Keeper</strong><span>The collaboration that surprised me most &mdash; working with and supporting a team.</span></li>
+      </ul>
+      <figure>
+        <img src="images/strengths-profile.png" alt="Radar chart of Rikaysh's strengths profile showing Problem Solver, Deliverer, Thinker, Philomath, and Peace Keeper" onerror="this.closest('figure').style.display='none'">
+        <figcaption>FIG. 2 &mdash; Strengths assessment radar, weighted toward Doing (41%) and Thinking (38%).</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="projects">
+    <span class="anno">Sheet 04 &mdash; Selected Projects</span>
+    <h2>Built, not just designed</h2>
+    <div class="proj-grid">
+      <div class="proj">
+        <span class="tag">Patent Pending</span>
+        <h3>Farm in a Box</h3>
+        <p>A laser-cut germination grow kit for education, with a sensor-monitored version in development.</p>
+      </div>
+      <div class="proj">
+        <span class="tag">Farm Robot MVP</span>
+        <h3>Agritron</h3>
+        <p>An eight-wheeled robot that autonomously drives crop rows and picks plants with a 3-DOF arm.</p>
+      </div>
+      <div class="proj">
+        <span class="tag">CoreXY + Tool Changer</span>
+        <h3>Farmtron</h3>
+        <p>A CNC-style robot with an automatic tool changer &mdash; motion control skills I taught myself along the way.</p>
+      </div>
+      <div class="proj">
+        <span class="tag">IoT Monitoring</span>
+        <h3>Climate Tree</h3>
+        <p>Field sensor nodes measuring humidity, temperature, soil moisture, and light, networked over LoRa.</p>
+      </div>
+      <div class="proj">
+        <span class="tag">Mechanical Design</span>
+        <h3>Actuator Tool Bar</h3>
+        <p>An actuator-driven hitch adapter that brings farming implements to any vehicle with a 2&rdquo; receiver.</p>
+      </div>
+      <div class="proj">
+        <span class="tag">Advanced RPAS</span>
+        <h3>Agricultural Drone Ops</h3>
+        <p>Licensed pilot flying a 50-pound agricultural drone for aerial mapping and spray missions.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="contact">
+      <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
+      <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <span class="rev">REV A &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
