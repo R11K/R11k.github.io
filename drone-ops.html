@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Actuator Tool Bar — Rikaysh Bidani</title>
+<title>Agricultural Drone Ops — Rikaysh Bidani</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,31 +105,24 @@
   </header>
   <div class="proj-hero">
     <a class="back" href="index.html#projects">&larr; All projects</a>
-    <span class="tag">Mechanical Design</span>
-    <h1>Actuator Tool Bar</h1>
+    <span class="tag">Advanced RPAS</span>
+    <h1>Agricultural Drone Ops</h1>
   </div>
   <section>
-    <div class="carousel" data-carousel>
-      <div class="track"><div class="slide" data-slot="1"><img src="images/actuator-tool-bar-1.png" alt="Actuator Tool Bar photo 1" onerror="this.parentElement.innerHTML='&lt;div class=\'placeholder\'&gt;&lt;strong&gt;IMAGE SLOT 1&lt;/strong&gt;Add images/actuator-tool-bar-1.png&lt;/div&gt;'"></div><div class="slide" data-slot="2"><img src="images/actuator-tool-bar-2.png" alt="Actuator Tool Bar photo 2" onerror="this.parentElement.innerHTML='&lt;div class=\'placeholder\'&gt;&lt;strong&gt;IMAGE SLOT 2&lt;/strong&gt;Add images/actuator-tool-bar-2.png&lt;/div&gt;'"></div><div class="slide" data-slot="3"><img src="images/actuator-tool-bar-3.png" alt="Actuator Tool Bar photo 3" onerror="this.parentElement.innerHTML='&lt;div class=\'placeholder\'&gt;&lt;strong&gt;IMAGE SLOT 3&lt;/strong&gt;Add images/actuator-tool-bar-3.png&lt;/div&gt;'"></div><div class="slide" data-slot="4"><img src="images/actuator-tool-bar-4.png" alt="Actuator Tool Bar photo 4" onerror="this.parentElement.innerHTML='&lt;div class=\'placeholder\'&gt;&lt;strong&gt;IMAGE SLOT 4&lt;/strong&gt;Add images/actuator-tool-bar-4.png&lt;/div&gt;'"></div></div>
-      <button class="car-btn prev" aria-label="Previous image">&larr;</button>
-      <button class="car-btn next" aria-label="Next image">&rarr;</button>
-      <div class="car-dots" role="tablist"></div>
+    <span class="anno">Demonstration</span>
+    <div style="max-width:820px;">
+      <!-- VIDEO SLOT: replace this whole block with the iframe below once you have the link.
+         Get VIDEO_ID from your YouTube URL: youtube.com/watch?v=VIDEO_ID
+         <div class="video-embed"><iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Drone operations" allow="accelerated-motion; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    -->
+    <div class="video-slot"><div class="placeholder"><strong>VIDEO SLOT &mdash; Drone operations</strong>Paste your YouTube embed URL in the src</div></div>
     </div>
-    <p class="car-count">4 image slot(s) &mdash; replace placeholders with your photos</p>
   </section>
   <section>
     <span class="anno">Description</span>
     <div class="prose">
-      <p>The actuator tool bar is a metal hitch adapter that fits into a 2&Prime; hitch receiver. An electric linear actuator raises and lowers a 2&Prime; square bar, letting you use farming implements on any vehicle with a 2&Prime; receiver &mdash; the intended platform being a John Deere Gator UTV. It can be combined with a custom row marker that uses a spring-loaded door hinge to mark out rows for seeding.</p>
-      <p>The design started from the motion I needed and worked back to the simplest mechanism that could deliver it reliably in the field.</p>
-    </div>
-    <h2 style="margin-top:40px;">Demonstration</h2>
-    <div style="max-width:720px;">
-      <!-- VIDEO SLOT: replace this whole block with the iframe below once you have the link.
-         Get VIDEO_ID from your YouTube URL: youtube.com/watch?v=VIDEO_ID
-         <div class="video-embed"><iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Actuator Tool Bar demo" allow="accelerated-motion; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-    -->
-    <div class="video-slot"><div class="placeholder"><strong>VIDEO SLOT &mdash; Actuator Tool Bar demo</strong>Paste your YouTube embed URL in the src</div></div>
+      <p>I hold an <strong>Advanced RPAS (Remotely Piloted Aircraft System) licence</strong>, which lets me operate drones in controlled airspace and near people. I fly a 50-pound agricultural drone for operations including aerial mapping and spray missions across farm sites.</p>
+      <p>Drone work ties directly into the rest of my agricultural robotics: aerial data feeds decisions on the ground, and spray operations put precision automation to work at field scale.</p>
     </div>
   </section>
   <footer id="contact">
@@ -140,21 +133,6 @@
     <span class="rev">REV B &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
-<script>
-document.querySelectorAll('[data-carousel]').forEach(function(car){
-  var track=car.querySelector('.track');
-  var slides=Array.prototype.slice.call(track.children);
-  var dotsWrap=car.querySelector('.car-dots');
-  var i=0;
-  function go(n){i=(n+slides.length)%slides.length;track.style.transform='translateX(-'+(i*100)+'%)';
-    if(dotsWrap){Array.prototype.forEach.call(dotsWrap.children,function(d,idx){d.setAttribute('aria-current',idx===i?'true':'false');});}}
-  var prev=car.querySelector('.prev'), next=car.querySelector('.next');
-  if(prev)prev.addEventListener('click',function(){go(i-1);});
-  if(next)next.addEventListener('click',function(){go(i+1);});
-  if(dotsWrap){slides.forEach(function(_,idx){var b=document.createElement('button');b.setAttribute('aria-label','Go to slide '+(idx+1));b.addEventListener('click',function(){go(idx);});dotsWrap.appendChild(b);});}
-  go(0);
-  if(slides.length<=1){if(prev)prev.style.display='none';if(next)next.style.display='none';if(dotsWrap)dotsWrap.style.display='none';}
-});
-</script>
+
 </body>
 </html>
