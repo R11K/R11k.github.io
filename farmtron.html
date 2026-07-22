@@ -57,13 +57,20 @@
   .car-dots button{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;cursor:pointer;padding:0;}
   .car-dots button[aria-current="true"]{background:var(--field);border-color:var(--field);}
   .car-count{font-family:var(--mono);font-size:11px;color:var(--steel);text-align:right;padding:6px 12px 0;letter-spacing:0.1em;}
+
+  /* --- Video: horizontal (16:9) --- */
   .video-slot{border:1.5px dashed var(--steel);background:#FDFCF9;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;}
-  .video-slot .placeholder{font-family:var(--mono);font-size:13px;color:var(--steel);letter-spacing:0.05em;line-height:1.7;}
-  .video-slot .placeholder strong{display:block;color:var(--ink);font-size:14px;margin-bottom:8px;letter-spacing:0.08em;}
   .video-embed{position:relative;width:100%;aspect-ratio:16/9;border:1.5px solid var(--ink);}
   .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-  @media (max-width:720px){.video-grid{grid-template-columns:1fr;}}
+  /* --- Video: vertical / Shorts (9:16) --- */
+  .video-slot-vert{border:1.5px dashed var(--steel);background:#FDFCF9;aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;max-width:340px;margin:0 auto;}
+  .video-embed-vert{position:relative;width:100%;max-width:340px;aspect-ratio:9/16;border:1.5px solid var(--ink);margin:0 auto;}
+  .video-embed-vert iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-slot .placeholder,.video-slot-vert .placeholder{font-family:var(--mono);font-size:13px;color:var(--steel);letter-spacing:0.05em;line-height:1.7;}
+  .video-slot .placeholder strong,.video-slot-vert .placeholder strong{display:block;color:var(--ink);font-size:14px;margin-bottom:8px;letter-spacing:0.08em;}
+  .video-grid-vert{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+  .video-grid-vert > *{flex:0 1 340px;}
+
   .reg-notice{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.04em;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:8px 0 4px;}
   .role{border-top:1.5px solid var(--ink);padding-top:26px;margin-top:34px;}
   .role:first-of-type{border-top:none;padding-top:0;margin-top:0;}
@@ -90,6 +97,20 @@
   @media (max-width:560px){.fact-grid{grid-template-columns:1fr;}.fact-grid .cell{border-right:none;border-bottom:1px solid var(--line);}}
   .resume-btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--sheet);background:var(--field);padding:14px 24px;margin-top:8px;}
   .resume-btn:hover{background:var(--safety);}
+
+  /* --- Project cards: clickable affordance --- */
+  .proj-hint{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;color:var(--steel);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+  .proj-hint::before{content:"\2192";color:var(--safety);font-size:14px;}
+  .proj-card{text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1.5px solid var(--ink);padding:18px 18px 16px;background:#FDFCF9;transition:transform .16s ease,box-shadow .16s ease,background .16s ease;}
+  .proj-card:hover{transform:translateY(-3px);box-shadow:5px 5px 0 var(--ink);background:#fff;}
+  .proj-card:hover h3{color:var(--safety);}
+  .proj-card .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:8px;}
+  .proj-card h3{font-family:var(--display);font-weight:700;font-size:1.12rem;margin-bottom:6px;transition:color .16s ease;}
+  .proj-card p{font-size:0.93rem;color:#3a423e;line-height:1.55;flex-grow:1;}
+  .proj-card .cta{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--field);margin-top:14px;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+  .proj-card:hover .cta{color:var(--safety);}
+  .proj-card .cta .arrow{transition:transform .16s ease;}
+  .proj-card:hover .cta .arrow{transform:translateX(4px);}
 </style>
 </head>
 <body>
@@ -124,17 +145,19 @@
       <p>It represents a design-confidence breakthrough for me: taking a complex multi-subsystem build from concept through a working, repeatable prototype.</p>
     </div>
     <h2 style="margin-top:40px;">Demonstrations</h2>
-    <div class="video-grid">
-      <!-- VIDEO SLOT: replace this whole block with the iframe below once you have the link.
-         Get VIDEO_ID from your YouTube URL: youtube.com/watch?v=VIDEO_ID
-         <div class="video-embed"><iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Farmtron demo 1" allow="accelerated-motion; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="video-grid-vert">
+      <!-- VIDEO SLOT (VERTICAL / YouTube Short)
+         Your Short URL looks like: youtube.com/shorts/VIDEO_ID
+         Copy VIDEO_ID (NOT the /shorts/ part) and replace this whole block with:
+         <div class="video-embed-vert"><iframe src="https://www.youtube.com/embed/ElDc40mEzyI" title="Farmtron demo 1" allow="accelerated-motion; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     -->
-    <div class="video-slot"><div class="placeholder"><strong>VIDEO SLOT &mdash; Farmtron demo 1</strong>Paste your YouTube embed URL in the src</div></div>
-      <!-- VIDEO SLOT: replace this whole block with the iframe below once you have the link.
-         Get VIDEO_ID from your YouTube URL: youtube.com/watch?v=VIDEO_ID
-         <div class="video-embed"><iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Farmtron demo 2" allow="accelerated-motion; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="video-slot-vert"><div class="placeholder"><strong>SHORT &mdash; Farmtron demo 1</strong>Vertical (9:16)<br>YouTube Short</div></div>
+      <!-- VIDEO SLOT (VERTICAL / YouTube Short)
+         Your Short URL looks like: youtube.com/shorts/VIDEO_ID
+         Copy VIDEO_ID (NOT the /shorts/ part) and replace this whole block with:
+         <div class="video-embed-vert"><iframe src="https://www.youtube.com/embed/AgsiyMWF8vI" title="Farmtron demo 2" allow="accelerated-motion; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     -->
-    <div class="video-slot"><div class="placeholder"><strong>VIDEO SLOT &mdash; Farmtron demo 2</strong>Paste your YouTube embed URL in the src</div></div>
+    <div class="video-slot-vert"><div class="placeholder"><strong>SHORT &mdash; Farmtron demo 2</strong>Vertical (9:16)<br>YouTube Short</div></div>
     </div>
   </section>
   <footer id="contact">
@@ -142,7 +165,7 @@
       <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
       <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <span class="rev">REV B &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+    <span class="rev">REV C &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
 <script>

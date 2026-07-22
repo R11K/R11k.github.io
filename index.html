@@ -57,13 +57,20 @@
   .car-dots button{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;cursor:pointer;padding:0;}
   .car-dots button[aria-current="true"]{background:var(--field);border-color:var(--field);}
   .car-count{font-family:var(--mono);font-size:11px;color:var(--steel);text-align:right;padding:6px 12px 0;letter-spacing:0.1em;}
+
+  /* --- Video: horizontal (16:9) --- */
   .video-slot{border:1.5px dashed var(--steel);background:#FDFCF9;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;}
-  .video-slot .placeholder{font-family:var(--mono);font-size:13px;color:var(--steel);letter-spacing:0.05em;line-height:1.7;}
-  .video-slot .placeholder strong{display:block;color:var(--ink);font-size:14px;margin-bottom:8px;letter-spacing:0.08em;}
   .video-embed{position:relative;width:100%;aspect-ratio:16/9;border:1.5px solid var(--ink);}
   .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-  @media (max-width:720px){.video-grid{grid-template-columns:1fr;}}
+  /* --- Video: vertical / Shorts (9:16) --- */
+  .video-slot-vert{border:1.5px dashed var(--steel);background:#FDFCF9;aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;max-width:340px;margin:0 auto;}
+  .video-embed-vert{position:relative;width:100%;max-width:340px;aspect-ratio:9/16;border:1.5px solid var(--ink);margin:0 auto;}
+  .video-embed-vert iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-slot .placeholder,.video-slot-vert .placeholder{font-family:var(--mono);font-size:13px;color:var(--steel);letter-spacing:0.05em;line-height:1.7;}
+  .video-slot .placeholder strong,.video-slot-vert .placeholder strong{display:block;color:var(--ink);font-size:14px;margin-bottom:8px;letter-spacing:0.08em;}
+  .video-grid-vert{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+  .video-grid-vert > *{flex:0 1 340px;}
+
   .reg-notice{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.04em;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:8px 0 4px;}
   .role{border-top:1.5px solid var(--ink);padding-top:26px;margin-top:34px;}
   .role:first-of-type{border-top:none;padding-top:0;margin-top:0;}
@@ -90,6 +97,20 @@
   @media (max-width:560px){.fact-grid{grid-template-columns:1fr;}.fact-grid .cell{border-right:none;border-bottom:1px solid var(--line);}}
   .resume-btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--sheet);background:var(--field);padding:14px 24px;margin-top:8px;}
   .resume-btn:hover{background:var(--safety);}
+
+  /* --- Project cards: clickable affordance --- */
+  .proj-hint{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;color:var(--steel);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+  .proj-hint::before{content:"\2192";color:var(--safety);font-size:14px;}
+  .proj-card{text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1.5px solid var(--ink);padding:18px 18px 16px;background:#FDFCF9;transition:transform .16s ease,box-shadow .16s ease,background .16s ease;}
+  .proj-card:hover{transform:translateY(-3px);box-shadow:5px 5px 0 var(--ink);background:#fff;}
+  .proj-card:hover h3{color:var(--safety);}
+  .proj-card .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:8px;}
+  .proj-card h3{font-family:var(--display);font-weight:700;font-size:1.12rem;margin-bottom:6px;transition:color .16s ease;}
+  .proj-card p{font-size:0.93rem;color:#3a423e;line-height:1.55;flex-grow:1;}
+  .proj-card .cta{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--field);margin-top:14px;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+  .proj-card:hover .cta{color:var(--safety);}
+  .proj-card .cta .arrow{transition:transform .16s ease;}
+  .proj-card:hover .cta .arrow{transform:translateX(4px);}
 </style>
 </head>
 <body>
@@ -161,31 +182,37 @@
   <section id="projects">
     <span class="anno">Sheet 03 &mdash; Selected Projects</span>
     <h2>Built, not just designed</h2>
+    <p class="proj-hint">Click any project below to see photos, videos, and the full write-up.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;">
-      <a href="farmtron.html" style="text-decoration:none;color:inherit;display:block;border:1.5px solid var(--ink);padding:18px 18px 20px;background:#FDFCF9;">
-        <span style="font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:8px;">CoreXY + Tool Changer</span>
-        <h3 style="font-family:var(--display);font-weight:700;font-size:1.12rem;margin-bottom:6px;">Farmtron &rarr;</h3>
-        <p style="font-size:0.93rem;color:#3a423e;line-height:1.55;">A CNC-style robot with an automatic tool changer &mdash; motion control skills I taught myself along the way.</p>
+      <a class="proj-card" href="farmtron.html">
+        <span class="tag">CoreXY + Tool Changer</span>
+        <h3>Farmtron</h3>
+        <p>A CNC-style robot with an automatic tool changer &mdash; motion control skills I taught myself along the way.</p>
+        <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
-      <a href="farm-in-a-box.html" style="text-decoration:none;color:inherit;display:block;border:1.5px solid var(--ink);padding:18px 18px 20px;background:#FDFCF9;">
-        <span style="font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:8px;">Design Registered</span>
-        <h3 style="font-family:var(--display);font-weight:700;font-size:1.12rem;margin-bottom:6px;">Farm in a Box &rarr;</h3>
-        <p style="font-size:0.93rem;color:#3a423e;line-height:1.55;">A laser-cut germination grow kit for education, with a sensor-monitored version in development.</p>
+      <a class="proj-card" href="farm-in-a-box.html">
+        <span class="tag">Design Registered</span>
+        <h3>Farm in a Box</h3>
+        <p>A laser-cut germination grow kit for education, with a sensor-monitored version in development.</p>
+        <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
-      <a href="climate-tree.html" style="text-decoration:none;color:inherit;display:block;border:1.5px solid var(--ink);padding:18px 18px 20px;background:#FDFCF9;">
-        <span style="font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:8px;">IoT Monitoring</span>
-        <h3 style="font-family:var(--display);font-weight:700;font-size:1.12rem;margin-bottom:6px;">Climate Tree &rarr;</h3>
-        <p style="font-size:0.93rem;color:#3a423e;line-height:1.55;">Field sensor nodes measuring humidity, temperature, soil moisture, and light, networked over LoRa.</p>
+      <a class="proj-card" href="climate-tree.html">
+        <span class="tag">IoT Monitoring</span>
+        <h3>Climate Tree</h3>
+        <p>Field sensor nodes measuring humidity, temperature, soil moisture, and light, networked over LoRa.</p>
+        <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
-      <a href="actuator-tool-bar.html" style="text-decoration:none;color:inherit;display:block;border:1.5px solid var(--ink);padding:18px 18px 20px;background:#FDFCF9;">
-        <span style="font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:8px;">Mechanical Design</span>
-        <h3 style="font-family:var(--display);font-weight:700;font-size:1.12rem;margin-bottom:6px;">Actuator Tool Bar &rarr;</h3>
-        <p style="font-size:0.93rem;color:#3a423e;line-height:1.55;">An actuator-driven hitch adapter that brings farming implements to any vehicle with a 2″ receiver.</p>
+      <a class="proj-card" href="actuator-tool-bar.html">
+        <span class="tag">Mechanical Design</span>
+        <h3>Actuator Tool Bar</h3>
+        <p>An actuator-driven hitch adapter that brings farming implements to any vehicle with a 2″ receiver.</p>
+        <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
-      <a href="drone-ops.html" style="text-decoration:none;color:inherit;display:block;border:1.5px solid var(--ink);padding:18px 18px 20px;background:#FDFCF9;">
-        <span style="font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:8px;">Advanced RPAS</span>
-        <h3 style="font-family:var(--display);font-weight:700;font-size:1.12rem;margin-bottom:6px;">Agricultural Drone Ops &rarr;</h3>
-        <p style="font-size:0.93rem;color:#3a423e;line-height:1.55;">Licensed pilot flying a 50-pound agricultural drone for aerial mapping and spray missions.</p>
+      <a class="proj-card" href="drone-ops.html">
+        <span class="tag">Advanced RPAS</span>
+        <h3>Agricultural Drone Ops</h3>
+        <p>Licensed pilot flying a 50-pound agricultural drone for aerial mapping and spray missions.</p>
+        <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
     </div>
   </section>
@@ -195,7 +222,7 @@
       <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
       <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <span class="rev">REV B &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+    <span class="rev">REV C &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
 
