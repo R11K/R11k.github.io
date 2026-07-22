@@ -184,13 +184,12 @@
       <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
       <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <span class="rev">REV E &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+    <span class="rev">REV G &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
 <script>
 (function(){
   var EXTS=['png','jpg','jpeg','JPG','JPEG','PNG','webp'];
-
   function findImage(base, cb){
     var i=0;
     function attempt(){
@@ -203,16 +202,12 @@
     }
     attempt();
   }
-
-  // Standalone images (e.g. FRC photo)
-  document.querySelectorAll('img[data-base]:not([data-carousel-img])').forEach(function(img){
+  document.querySelectorAll('img[data-base]').forEach(function(img){
     findImage(img.getAttribute('data-base'), function(url){
       if(url){img.src=url;}
       else{var f=img.closest('figure'); if(f)f.style.display='none'; else img.style.display='none';}
     });
   });
-
-  // Carousels: probe max slots, keep only the ones that exist
   document.querySelectorAll('[data-carousel]').forEach(function(car){
     var prefix=car.getAttribute('data-prefix');
     var max=parseInt(car.getAttribute('data-max'),10)||1;
@@ -222,7 +217,6 @@
     var countEl=document.querySelector('[data-count-for="'+prefix+'"]');
     var found=new Array(max).fill(null);
     var done=0;
-
     for(var n=1;n<=max;n++){
       (function(idx){
         findImage(prefix+'-'+idx, function(url){
@@ -231,12 +225,10 @@
         });
       })(n);
     }
-
     function build(){
       var urls=found.filter(function(u){return u;});
       track.innerHTML='';
       if(urls.length===0){
-        var wrap=car.parentElement;
         car.style.display='none';
         if(countEl)countEl.style.display='none';
         return;
