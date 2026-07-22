@@ -57,20 +57,12 @@
   .car-dots button{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;cursor:pointer;padding:0;}
   .car-dots button[aria-current="true"]{background:var(--field);border-color:var(--field);}
   .car-count{font-family:var(--mono);font-size:11px;color:var(--steel);text-align:right;padding:6px 12px 0;letter-spacing:0.1em;}
-
-  /* --- Video: horizontal (16:9) --- */
-  .video-slot{border:1.5px dashed var(--steel);background:#FDFCF9;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;}
   .video-embed{position:relative;width:100%;aspect-ratio:16/9;border:1.5px solid var(--ink);}
   .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  /* --- Video: vertical / Shorts (9:16) --- */
-  .video-slot-vert{border:1.5px dashed var(--steel);background:#FDFCF9;aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;max-width:340px;margin:0 auto;}
   .video-embed-vert{position:relative;width:100%;max-width:340px;aspect-ratio:9/16;border:1.5px solid var(--ink);margin:0 auto;}
   .video-embed-vert iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  .video-slot .placeholder,.video-slot-vert .placeholder{font-family:var(--mono);font-size:13px;color:var(--steel);letter-spacing:0.05em;line-height:1.7;}
-  .video-slot .placeholder strong,.video-slot-vert .placeholder strong{display:block;color:var(--ink);font-size:14px;margin-bottom:8px;letter-spacing:0.08em;}
   .video-grid-vert{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
   .video-grid-vert > *{flex:0 1 340px;}
-
   .reg-notice{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.04em;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:8px 0 4px;}
   .role{border-top:1.5px solid var(--ink);padding-top:26px;margin-top:34px;}
   .role:first-of-type{border-top:none;padding-top:0;margin-top:0;}
@@ -97,8 +89,6 @@
   @media (max-width:560px){.fact-grid{grid-template-columns:1fr;}.fact-grid .cell{border-right:none;border-bottom:1px solid var(--line);}}
   .resume-btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--sheet);background:var(--field);padding:14px 24px;margin-top:8px;}
   .resume-btn:hover{background:var(--safety);}
-
-  /* --- Project cards: clickable affordance --- */
   .proj-hint{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;color:var(--steel);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
   .proj-hint::before{content:"\2192";color:var(--safety);font-size:14px;}
   .proj-card{text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1.5px solid var(--ink);padding:18px 18px 16px;background:#FDFCF9;transition:transform .16s ease,box-shadow .16s ease,background .16s ease;}
@@ -131,12 +121,12 @@
   </div>
   <section>
     <div class="carousel" data-carousel>
-      <div class="track"><div class="slide" data-slot="1"><img src="images/climate-tree-1.png" alt="Climate Tree photo 1" onerror="this.parentElement.innerHTML='&lt;div class=\'placeholder\'&gt;&lt;strong&gt;IMAGE SLOT 1&lt;/strong&gt;Add images/climate-tree-1.png&lt;/div&gt;'"></div><div class="slide" data-slot="2"><img src="images/climate-tree-2.png" alt="Climate Tree photo 2" onerror="this.parentElement.innerHTML='&lt;div class=\'placeholder\'&gt;&lt;strong&gt;IMAGE SLOT 2&lt;/strong&gt;Add images/climate-tree-2.png&lt;/div&gt;'"></div><div class="slide" data-slot="3"><img src="images/climate-tree-3.png" alt="Climate Tree photo 3" onerror="this.parentElement.innerHTML='&lt;div class=\'placeholder\'&gt;&lt;strong&gt;IMAGE SLOT 3&lt;/strong&gt;Add images/climate-tree-3.png&lt;/div&gt;'"></div><div class="slide" data-slot="4"><img src="images/climate-tree-4.png" alt="Climate Tree photo 4" onerror="this.parentElement.innerHTML='&lt;div class=\'placeholder\'&gt;&lt;strong&gt;IMAGE SLOT 4&lt;/strong&gt;Add images/climate-tree-4.png&lt;/div&gt;'"></div></div>
+      <div class="track"><div class="slide"><img data-base="climate-tree-1" data-slot="1" alt="Climate Tree photo 1"></div><div class="slide"><img data-base="climate-tree-2" data-slot="2" alt="Climate Tree photo 2"></div><div class="slide"><img data-base="climate-tree-3" data-slot="3" alt="Climate Tree photo 3"></div><div class="slide"><img data-base="climate-tree-4" data-slot="4" alt="Climate Tree photo 4"></div></div>
       <button class="car-btn prev" aria-label="Previous image">&larr;</button>
       <button class="car-btn next" aria-label="Next image">&rarr;</button>
       <div class="car-dots" role="tablist"></div>
     </div>
-    <p class="car-count">4 image slot(s) &mdash; replace placeholders with your photos</p>
+    <p class="car-count">Image files: climate-tree-1 &hellip; climate-tree-4 (.png or .jpg both work)</p>
   </section>
   <section>
     <span class="anno">Description</span>
@@ -151,10 +141,29 @@
       <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
       <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <span class="rev">REV C &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+    <span class="rev">REV D &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
 <script>
+// Image fallback: try .png, then .jpg, .jpeg, .JPG, .webp before showing placeholder
+document.querySelectorAll('img[data-base]').forEach(function(img){
+  var exts=['png','jpg','jpeg','JPG','PNG','webp'];
+  var i=0;
+  function tryNext(){
+    if(i>=exts.length){
+      var slot=img.getAttribute('data-slot')||'';
+      var ph=document.createElement('div');
+      ph.className='placeholder';
+      ph.innerHTML='<strong>IMAGE SLOT '+slot+'</strong>Add images/'+img.getAttribute('data-base')+'.jpg';
+      if(img.parentElement){img.parentElement.innerHTML='';img.parentElement.appendChild(ph);}
+      return;
+    }
+    img.src='images/'+img.getAttribute('data-base')+'.'+exts[i++];
+  }
+  img.addEventListener('error',tryNext);
+  tryNext();
+});
+
 document.querySelectorAll('[data-carousel]').forEach(function(car){
   var track=car.querySelector('.track');
   var slides=Array.prototype.slice.call(track.children);
