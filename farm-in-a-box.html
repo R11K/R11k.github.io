@@ -47,13 +47,12 @@
   .carousel .track{display:flex;transition:transform .4s ease;}
   .carousel .slide{min-width:100%;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:#EFEEE8;}
   .carousel .slide img{width:100%;height:100%;object-fit:contain;display:block;}
-  .carousel .placeholder{font-family:var(--mono);font-size:13px;color:var(--steel);text-align:center;padding:24px;letter-spacing:0.06em;}
-  .carousel .placeholder strong{display:block;color:var(--ink);font-size:15px;margin-bottom:6px;letter-spacing:0.1em;}
-  .car-btn{position:absolute;top:50%;transform:translateY(-50%);background:var(--sheet);border:1.5px solid var(--ink);width:44px;height:44px;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;font-family:var(--mono);}
+  .carousel .loading{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.08em;}
+  .car-btn{position:absolute;top:50%;transform:translateY(-50%);background:var(--sheet);border:1.5px solid var(--ink);width:44px;height:44px;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;font-family:var(--mono);z-index:2;}
   .car-btn:hover{background:var(--safety);color:#fff;border-color:var(--safety);}
   .car-btn.prev{left:12px;}
   .car-btn.next{right:12px;}
-  .car-dots{display:flex;gap:8px;justify-content:center;padding:14px;border-top:1.5px solid var(--ink);}
+  .car-dots{display:flex;gap:8px;justify-content:center;padding:14px;border-top:1.5px solid var(--ink);flex-wrap:wrap;}
   .car-dots button{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;cursor:pointer;padding:0;}
   .car-dots button[aria-current="true"]{background:var(--field);border-color:var(--field);}
   .car-count{font-family:var(--mono);font-size:11px;color:var(--steel);text-align:right;padding:6px 12px 0;letter-spacing:0.1em;}
@@ -120,13 +119,13 @@
     <h1>Farm in a Box</h1>
   </div>
   <section>
-    <div class="carousel" data-carousel>
-      <div class="track"><div class="slide"><img data-base="farm-in-a-box-1" data-slot="1" alt="Farm in a Box photo 1"></div><div class="slide"><img data-base="farm-in-a-box-2" data-slot="2" alt="Farm in a Box photo 2"></div><div class="slide"><img data-base="farm-in-a-box-3" data-slot="3" alt="Farm in a Box photo 3"></div><div class="slide"><img data-base="farm-in-a-box-4" data-slot="4" alt="Farm in a Box photo 4"></div></div>
+    <div class="carousel" data-carousel data-prefix="farm-in-a-box" data-max="11">
+      <div class="track"><div class="slide"><span class="loading">Loading images&hellip;</span></div></div>
       <button class="car-btn prev" aria-label="Previous image">&larr;</button>
       <button class="car-btn next" aria-label="Next image">&rarr;</button>
       <div class="car-dots" role="tablist"></div>
     </div>
-    <p class="car-count">Image files: farm-in-a-box-1 &hellip; farm-in-a-box-4 (.png or .jpg both work)</p>
+    <p class="car-count" data-count-for="farm-in-a-box"></p>
   </section>
   <section>
     <span class="anno">Description</span>
@@ -141,43 +140,101 @@
       <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
       <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <span class="rev">REV D &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+    <span class="rev">REV E &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
 <script>
-// Image fallback: try .png, then .jpg, .jpeg, .JPG, .webp before showing placeholder
-document.querySelectorAll('img[data-base]').forEach(function(img){
-  var exts=['png','jpg','jpeg','JPG','PNG','webp'];
-  var i=0;
-  function tryNext(){
-    if(i>=exts.length){
-      var slot=img.getAttribute('data-slot')||'';
-      var ph=document.createElement('div');
-      ph.className='placeholder';
-      ph.innerHTML='<strong>IMAGE SLOT '+slot+'</strong>Add images/'+img.getAttribute('data-base')+'.jpg';
-      if(img.parentElement){img.parentElement.innerHTML='';img.parentElement.appendChild(ph);}
-      return;
-    }
-    img.src='images/'+img.getAttribute('data-base')+'.'+exts[i++];
-  }
-  img.addEventListener('error',tryNext);
-  tryNext();
-});
+(function(){
+  var EXTS=['png','jpg','jpeg','JPG','JPEG','PNG','webp'];
 
-document.querySelectorAll('[data-carousel]').forEach(function(car){
-  var track=car.querySelector('.track');
-  var slides=Array.prototype.slice.call(track.children);
-  var dotsWrap=car.querySelector('.car-dots');
-  var i=0;
-  function go(n){i=(n+slides.length)%slides.length;track.style.transform='translateX(-'+(i*100)+'%)';
-    if(dotsWrap){Array.prototype.forEach.call(dotsWrap.children,function(d,idx){d.setAttribute('aria-current',idx===i?'true':'false');});}}
-  var prev=car.querySelector('.prev'), next=car.querySelector('.next');
-  if(prev)prev.addEventListener('click',function(){go(i-1);});
-  if(next)next.addEventListener('click',function(){go(i+1);});
-  if(dotsWrap){slides.forEach(function(_,idx){var b=document.createElement('button');b.setAttribute('aria-label','Go to slide '+(idx+1));b.addEventListener('click',function(){go(idx);});dotsWrap.appendChild(b);});}
-  go(0);
-  if(slides.length<=1){if(prev)prev.style.display='none';if(next)next.style.display='none';if(dotsWrap)dotsWrap.style.display='none';}
-});
+  function findImage(base, cb){
+    var i=0;
+    function attempt(){
+      if(i>=EXTS.length){cb(null);return;}
+      var url='images/'+base+'.'+EXTS[i++];
+      var probe=new Image();
+      probe.onload=function(){cb(url);};
+      probe.onerror=attempt;
+      probe.src=url;
+    }
+    attempt();
+  }
+
+  // Standalone images (e.g. FRC photo)
+  document.querySelectorAll('img[data-base]:not([data-carousel-img])').forEach(function(img){
+    findImage(img.getAttribute('data-base'), function(url){
+      if(url){img.src=url;}
+      else{var f=img.closest('figure'); if(f)f.style.display='none'; else img.style.display='none';}
+    });
+  });
+
+  // Carousels: probe max slots, keep only the ones that exist
+  document.querySelectorAll('[data-carousel]').forEach(function(car){
+    var prefix=car.getAttribute('data-prefix');
+    var max=parseInt(car.getAttribute('data-max'),10)||1;
+    var track=car.querySelector('.track');
+    var dotsWrap=car.querySelector('.car-dots');
+    var prev=car.querySelector('.prev'), next=car.querySelector('.next');
+    var countEl=document.querySelector('[data-count-for="'+prefix+'"]');
+    var found=new Array(max).fill(null);
+    var done=0;
+
+    for(var n=1;n<=max;n++){
+      (function(idx){
+        findImage(prefix+'-'+idx, function(url){
+          found[idx-1]=url;
+          if(++done===max) build();
+        });
+      })(n);
+    }
+
+    function build(){
+      var urls=found.filter(function(u){return u;});
+      track.innerHTML='';
+      if(urls.length===0){
+        var wrap=car.parentElement;
+        car.style.display='none';
+        if(countEl)countEl.style.display='none';
+        return;
+      }
+      urls.forEach(function(url,idx){
+        var slide=document.createElement('div');
+        slide.className='slide';
+        var im=document.createElement('img');
+        im.src=url;
+        im.alt=prefix.replace(/-/g,' ')+' photo '+(idx+1);
+        im.loading='lazy';
+        slide.appendChild(im);
+        track.appendChild(slide);
+      });
+      var slides=Array.prototype.slice.call(track.children);
+      var i=0;
+      function go(n){
+        i=(n+slides.length)%slides.length;
+        track.style.transform='translateX(-'+(i*100)+'%)';
+        if(dotsWrap){Array.prototype.forEach.call(dotsWrap.children,function(d,ix){d.setAttribute('aria-current',ix===i?'true':'false');});}
+      }
+      if(dotsWrap){
+        dotsWrap.innerHTML='';
+        slides.forEach(function(_,ix){
+          var b=document.createElement('button');
+          b.setAttribute('aria-label','Go to image '+(ix+1));
+          b.addEventListener('click',function(){go(ix);});
+          dotsWrap.appendChild(b);
+        });
+      }
+      if(prev)prev.onclick=function(){go(i-1);};
+      if(next)next.onclick=function(){go(i+1);};
+      go(0);
+      if(slides.length<=1){
+        if(prev)prev.style.display='none';
+        if(next)next.style.display='none';
+        if(dotsWrap)dotsWrap.style.display='none';
+      }
+      if(countEl)countEl.textContent=slides.length+(slides.length===1?' image':' images');
+    }
+  });
+})();
 </script>
 </body>
 </html>
