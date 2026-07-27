@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Agricultural Drone Ops — Rikaysh Bidani</title>
+<title>Agricultural Drone Ops - Rikaysh Bidani</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,11 +22,11 @@
   a:focus-visible,button:focus-visible{outline:2px solid var(--safety);outline-offset:3px;}
   .sheet{max-width:1080px;margin:24px auto 48px;border:1.5px solid var(--ink);background:var(--sheet);}
   @media (max-width:720px){.sheet{margin:10px 10px 32px;}}
-  header{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1.5px solid var(--ink);font-family:var(--mono);font-size:13px;}
+  header{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1.5px solid var(--ink);font-family:var(--mono);font-size:13px;flex-wrap:wrap;gap:8px;}
   header .mark{font-weight:500;letter-spacing:0.06em;text-decoration:none;color:var(--ink);}
-  header nav a{color:var(--ink);text-decoration:none;margin-left:22px;letter-spacing:0.04em;}
+  header nav a{color:var(--ink);text-decoration:none;margin-left:20px;letter-spacing:0.04em;}
   header nav a:hover{color:var(--safety);}
-  @media (max-width:560px){header{flex-direction:column;gap:8px;}header nav a{margin:0 10px;}}
+  @media (max-width:600px){header{flex-direction:column;gap:8px;}header nav a{margin:0 9px;}}
   section{padding:56px 28px;border-top:1.5px solid var(--ink);}
   .anno{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:14px;}
   h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-0.01em;margin-bottom:22px;}
@@ -63,6 +63,11 @@
   .video-grid-vert{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
   .video-grid-vert > *{flex:0 1 340px;}
   .reg-notice{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.04em;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:8px 0 4px;}
+  .work-badge{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--field);border:1px solid var(--field);padding:4px 10px;margin-bottom:18px;}
+  .doc-embed{width:100%;height:800px;border:1.5px solid var(--ink);background:#EFEEE8;}
+  .doc-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;}
+  .doc-btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--sheet);background:var(--field);padding:12px 20px;}
+  .doc-btn:hover{background:var(--safety);color:#fff;}
   .role{border-top:1.5px solid var(--ink);padding-top:26px;margin-top:34px;}
   .role:first-of-type{border-top:none;padding-top:0;margin-top:0;}
   .role-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:4px;}
@@ -100,6 +105,17 @@
   .proj-card:hover .cta{color:var(--safety);}
   .proj-card .cta .arrow{transition:transform .16s ease;}
   .proj-card:hover .cta .arrow{transform:translateX(4px);}
+  .subhead{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel);margin:38px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+  .goal-block{border:1.5px solid var(--ink);margin-bottom:22px;background:#FDFCF9;}
+  .goal-block .comp-head{padding:20px 24px;border-bottom:1.5px solid var(--ink);}
+  .goal-block .comp-head .num{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:6px;}
+  .goal-block .comp-head h3{font-family:var(--display);font-weight:700;font-size:1.24rem;}
+  .goal-item{padding:18px 24px;border-top:1px solid var(--line);}
+  .goal-item:first-of-type{border-top:none;}
+  .goal-item h4{font-family:var(--display);font-weight:700;font-size:1.05rem;margin-bottom:8px;}
+  .goal-item p{max-width:70ch;font-size:0.96rem;margin-bottom:8px;}
+  .goal-status{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--field);display:inline-flex;align-items:center;gap:7px;}
+  .goal-status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--safety);display:inline-block;}
 </style>
 </head>
 <body>
@@ -109,6 +125,7 @@
     <nav>
       <a href="index.html#about">About</a>
       <a href="index.html#projects">Projects</a>
+      <a href="goals.html">Goals</a>
       <a href="career.html">Career</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -136,7 +153,7 @@
       <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
       <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <span class="rev">REV G &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+    <span class="rev">REV H &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
 <script>
@@ -180,45 +197,21 @@
     function build(){
       var urls=found.filter(function(u){return u;});
       track.innerHTML='';
-      if(urls.length===0){
-        car.style.display='none';
-        if(countEl)countEl.style.display='none';
-        return;
-      }
+      if(urls.length===0){car.style.display='none';if(countEl)countEl.style.display='none';return;}
       urls.forEach(function(url,idx){
-        var slide=document.createElement('div');
-        slide.className='slide';
-        var im=document.createElement('img');
-        im.src=url;
-        im.alt=prefix.replace(/-/g,' ')+' photo '+(idx+1);
-        im.loading='lazy';
-        slide.appendChild(im);
-        track.appendChild(slide);
+        var slide=document.createElement('div');slide.className='slide';
+        var im=document.createElement('img');im.src=url;im.alt=prefix.replace(/-/g,' ')+' photo '+(idx+1);im.loading='lazy';
+        slide.appendChild(im);track.appendChild(slide);
       });
       var slides=Array.prototype.slice.call(track.children);
       var i=0;
-      function go(n){
-        i=(n+slides.length)%slides.length;
-        track.style.transform='translateX(-'+(i*100)+'%)';
-        if(dotsWrap){Array.prototype.forEach.call(dotsWrap.children,function(d,ix){d.setAttribute('aria-current',ix===i?'true':'false');});}
-      }
-      if(dotsWrap){
-        dotsWrap.innerHTML='';
-        slides.forEach(function(_,ix){
-          var b=document.createElement('button');
-          b.setAttribute('aria-label','Go to image '+(ix+1));
-          b.addEventListener('click',function(){go(ix);});
-          dotsWrap.appendChild(b);
-        });
-      }
+      function go(n){i=(n+slides.length)%slides.length;track.style.transform='translateX(-'+(i*100)+'%)';
+        if(dotsWrap){Array.prototype.forEach.call(dotsWrap.children,function(d,ix){d.setAttribute('aria-current',ix===i?'true':'false');});}}
+      if(dotsWrap){dotsWrap.innerHTML='';slides.forEach(function(_,ix){var b=document.createElement('button');b.setAttribute('aria-label','Go to image '+(ix+1));b.addEventListener('click',function(){go(ix);});dotsWrap.appendChild(b);});}
       if(prev)prev.onclick=function(){go(i-1);};
       if(next)next.onclick=function(){go(i+1);};
       go(0);
-      if(slides.length<=1){
-        if(prev)prev.style.display='none';
-        if(next)next.style.display='none';
-        if(dotsWrap)dotsWrap.style.display='none';
-      }
+      if(slides.length<=1){if(prev)prev.style.display='none';if(next)next.style.display='none';if(dotsWrap)dotsWrap.style.display='none';}
       if(countEl)countEl.textContent=slides.length+(slides.length===1?' image':' images');
     }
   });

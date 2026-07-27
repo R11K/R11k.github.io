@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Gel-Sensing Claw - Rikaysh Bidani</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sheet:#F7F6F1; --ink:#1B2420; --field:#2E5339; --steel:#7C8582;
+    --line:#C9CCC4; --safety:#E8632B;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --display:"Archivo",sans-serif; --body:"Public Sans",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}}
+  body{background:var(--sheet);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:var(--field);}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--safety);outline-offset:3px;}
+  .sheet{max-width:1080px;margin:24px auto 48px;border:1.5px solid var(--ink);background:var(--sheet);}
+  @media (max-width:720px){.sheet{margin:10px 10px 32px;}}
+  header{display:flex;justify-content:space-between;align-items:center;padding:14px 28px;border-bottom:1.5px solid var(--ink);font-family:var(--mono);font-size:13px;flex-wrap:wrap;gap:8px;}
+  header .mark{font-weight:500;letter-spacing:0.06em;text-decoration:none;color:var(--ink);}
+  header nav a{color:var(--ink);text-decoration:none;margin-left:20px;letter-spacing:0.04em;}
+  header nav a:hover{color:var(--safety);}
+  @media (max-width:600px){header{flex-direction:column;gap:8px;}header nav a{margin:0 9px;}}
+  section{padding:56px 28px;border-top:1.5px solid var(--ink);}
+  .anno{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:14px;}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-0.01em;margin-bottom:22px;}
+  .prose p{max-width:68ch;margin-bottom:1.1em;}
+  figure img{width:100%;display:block;border:1.5px solid var(--ink);}
+  figcaption{font-family:var(--mono);font-size:12px;color:var(--steel);margin-top:8px;line-height:1.5;}
+  footer{border-top:1.5px solid var(--ink);padding:34px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+  footer .contact{font-family:var(--mono);font-size:13px;}
+  footer .contact a{margin-right:20px;text-decoration:none;}
+  footer .contact a:hover{color:var(--safety);}
+  footer .rev{font-family:var(--mono);font-size:11px;color:var(--steel);letter-spacing:0.1em;}
+  .proj-hero{padding:56px 28px 40px;}
+  .proj-hero .back{font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;color:var(--steel);display:inline-block;margin-bottom:22px;}
+  .proj-hero .back:hover{color:var(--safety);}
+  .proj-hero .tag{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:10px;}
+  .proj-hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.02;letter-spacing:-0.02em;text-transform:uppercase;}
+  .carousel{position:relative;border:1.5px solid var(--ink);background:#FDFCF9;overflow:hidden;}
+  .carousel .track{display:flex;transition:transform .4s ease;}
+  .carousel .slide{min-width:100%;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:#EFEEE8;}
+  .carousel .slide img{width:100%;height:100%;object-fit:contain;display:block;}
+  .carousel .loading{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.08em;}
+  .car-btn{position:absolute;top:50%;transform:translateY(-50%);background:var(--sheet);border:1.5px solid var(--ink);width:44px;height:44px;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;font-family:var(--mono);z-index:2;}
+  .car-btn:hover{background:var(--safety);color:#fff;border-color:var(--safety);}
+  .car-btn.prev{left:12px;}
+  .car-btn.next{right:12px;}
+  .car-dots{display:flex;gap:8px;justify-content:center;padding:14px;border-top:1.5px solid var(--ink);flex-wrap:wrap;}
+  .car-dots button{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;cursor:pointer;padding:0;}
+  .car-dots button[aria-current="true"]{background:var(--field);border-color:var(--field);}
+  .car-count{font-family:var(--mono);font-size:11px;color:var(--steel);text-align:right;padding:6px 12px 0;letter-spacing:0.1em;}
+  .video-embed{position:relative;width:100%;aspect-ratio:16/9;border:1.5px solid var(--ink);}
+  .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-embed-vert{position:relative;width:100%;max-width:340px;aspect-ratio:9/16;border:1.5px solid var(--ink);margin:0 auto;}
+  .video-embed-vert iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-grid-vert{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+  .video-grid-vert > *{flex:0 1 340px;}
+  .reg-notice{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.04em;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:8px 0 4px;}
+  .work-badge{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--field);border:1px solid var(--field);padding:4px 10px;margin-bottom:18px;}
+  .doc-embed{width:100%;height:800px;border:1.5px solid var(--ink);background:#EFEEE8;}
+  .doc-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;}
+  .doc-btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--sheet);background:var(--field);padding:12px 20px;}
+  .doc-btn:hover{background:var(--safety);color:#fff;}
+  .role{border-top:1.5px solid var(--ink);padding-top:26px;margin-top:34px;}
+  .role:first-of-type{border-top:none;padding-top:0;margin-top:0;}
+  .role-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:4px;}
+  .role-head h3{font-family:var(--display);font-weight:700;font-size:1.28rem;}
+  .role-head .dates{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.06em;white-space:nowrap;}
+  .role .org{font-family:var(--mono);font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--field);margin-bottom:14px;}
+  .role ul{list-style:none;max-width:72ch;}
+  .role li{padding:5px 0 5px 22px;position:relative;color:#2c332f;}
+  .role li::before{content:"";position:absolute;left:0;top:13px;width:8px;height:1.5px;background:var(--safety);}
+  .skill-cols{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1.5px solid var(--ink);max-width:820px;}
+  .skill-cols .col{padding:22px 26px;}
+  .skill-cols .col + .col{border-left:1.5px solid var(--ink);}
+  .skill-cols h3{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;color:var(--steel);margin-bottom:14px;}
+  .skill-cols ul{list-style:none;}
+  .skill-cols li{padding:5px 0;border-bottom:1px solid var(--line);font-size:0.98rem;}
+  .skill-cols li:last-child{border-bottom:none;}
+  @media (max-width:560px){.skill-cols{grid-template-columns:1fr;}.skill-cols .col + .col{border-left:none;border-top:1.5px solid var(--ink);}}
+  .fact-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--ink);max-width:820px;margin-top:6px;}
+  .fact-grid .cell{border-right:1px solid var(--line);padding:16px 18px;}
+  .fact-grid .cell:last-child{border-right:none;}
+  .fact-grid .label{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:6px;}
+  .fact-grid .val{font-weight:600;font-size:0.95rem;line-height:1.4;}
+  @media (max-width:560px){.fact-grid{grid-template-columns:1fr;}.fact-grid .cell{border-right:none;border-bottom:1px solid var(--line);}}
+  .resume-btn{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--sheet);background:var(--field);padding:14px 24px;margin-top:8px;}
+  .resume-btn:hover{background:var(--safety);}
+  .proj-hint{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;color:var(--steel);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+  .proj-hint::before{content:"\2192";color:var(--safety);font-size:14px;}
+  .proj-card{text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1.5px solid var(--ink);padding:18px 18px 16px;background:#FDFCF9;transition:transform .16s ease,box-shadow .16s ease,background .16s ease;}
+  .proj-card:hover{transform:translateY(-3px);box-shadow:5px 5px 0 var(--ink);background:#fff;}
+  .proj-card:hover h3{color:var(--safety);}
+  .proj-card .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:8px;}
+  .proj-card h3{font-family:var(--display);font-weight:700;font-size:1.12rem;margin-bottom:6px;transition:color .16s ease;}
+  .proj-card p{font-size:0.93rem;color:#3a423e;line-height:1.55;flex-grow:1;}
+  .proj-card .cta{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--field);margin-top:14px;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+  .proj-card:hover .cta{color:var(--safety);}
+  .proj-card .cta .arrow{transition:transform .16s ease;}
+  .proj-card:hover .cta .arrow{transform:translateX(4px);}
+  .subhead{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel);margin:38px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+  .goal-block{border:1.5px solid var(--ink);margin-bottom:22px;background:#FDFCF9;}
+  .goal-block .comp-head{padding:20px 24px;border-bottom:1.5px solid var(--ink);}
+  .goal-block .comp-head .num{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:6px;}
+  .goal-block .comp-head h3{font-family:var(--display);font-weight:700;font-size:1.24rem;}
+  .goal-item{padding:18px 24px;border-top:1px solid var(--line);}
+  .goal-item:first-of-type{border-top:none;}
+  .goal-item h4{font-family:var(--display);font-weight:700;font-size:1.05rem;margin-bottom:8px;}
+  .goal-item p{max-width:70ch;font-size:0.96rem;margin-bottom:8px;}
+  .goal-status{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--field);display:inline-flex;align-items:center;gap:7px;}
+  .goal-status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--safety);display:inline-block;}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header>
+    <a class="mark" href="index.html">R.BIDANI / MECHATRONICS</a>
+    <nav>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="goals.html">Goals</a>
+      <a href="career.html">Career</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+  <div class="proj-hero">
+    <a class="back" href="index.html#projects">&larr; All projects</a>
+    <span class="tag">TRON 2000 &middot; Course Project</span>
+    <h1>Gel-Sensing Claw</h1>
+  </div>
+  <section>
+    <div class="carousel" data-carousel data-prefix="gel-claw" data-max="1">
+      <div class="track"><div class="slide"><span class="loading">Loading images&hellip;</span></div></div>
+      <button class="car-btn prev" aria-label="Previous image">&larr;</button>
+      <button class="car-btn next" aria-label="Next image">&rarr;</button>
+      <div class="car-dots" role="tablist"></div>
+    </div>
+    <p class="car-count" data-count-for="gel-claw"></p>
+  </section>
+  <section>
+    <span class="anno">Description</span>
+    <span class="work-badge">Course project &middot; TRON 2000: Mechatronics System Design and Implementation II</span>
+    <div class="prose">
+      <p>This robotic claw with a gel-based object-detection system was developed in my second-year <strong>TRON 2000: Mechatronics System Design and Implementation II</strong> course. A translucent gel pad covered in a printed dot matrix sits over a camera inside the claw; when the claw closes on an object, the gel compresses and the dot matrix shifts. The camera uses OpenCV to track that movement, letting the claw sense contact and estimate how tightly it is gripping.</p>
+      <p>The project brought together mechanical design of the gripper, the optical-tactile sensing approach, and the computer-vision pipeline that turns a deforming dot pattern into usable grip feedback.</p>
+    </div>
+
+    <h2 style="margin-top:40px;">Demonstration</h2>
+    <div style="max-width:820px;">
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/YY-uu2xSyvc" title="Gel-sensing claw demonstration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
+  </section>
+  <footer id="contact">
+    <div class="contact">
+      <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
+      <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <span class="rev">REV H &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var EXTS=['png','jpg','jpeg','JPG','JPEG','PNG','webp'];
+  function findImage(base, cb){
+    var i=0;
+    function attempt(){
+      if(i>=EXTS.length){cb(null);return;}
+      var url='images/'+base+'.'+EXTS[i++];
+      var probe=new Image();
+      probe.onload=function(){cb(url);};
+      probe.onerror=attempt;
+      probe.src=url;
+    }
+    attempt();
+  }
+  document.querySelectorAll('img[data-base]').forEach(function(img){
+    findImage(img.getAttribute('data-base'), function(url){
+      if(url){img.src=url;}
+      else{var f=img.closest('figure'); if(f)f.style.display='none'; else img.style.display='none';}
+    });
+  });
+  document.querySelectorAll('[data-carousel]').forEach(function(car){
+    var prefix=car.getAttribute('data-prefix');
+    var max=parseInt(car.getAttribute('data-max'),10)||1;
+    var track=car.querySelector('.track');
+    var dotsWrap=car.querySelector('.car-dots');
+    var prev=car.querySelector('.prev'), next=car.querySelector('.next');
+    var countEl=document.querySelector('[data-count-for="'+prefix+'"]');
+    var found=new Array(max).fill(null);
+    var done=0;
+    for(var n=1;n<=max;n++){
+      (function(idx){
+        findImage(prefix+'-'+idx, function(url){
+          found[idx-1]=url;
+          if(++done===max) build();
+        });
+      })(n);
+    }
+    function build(){
+      var urls=found.filter(function(u){return u;});
+      track.innerHTML='';
+      if(urls.length===0){car.style.display='none';if(countEl)countEl.style.display='none';return;}
+      urls.forEach(function(url,idx){
+        var slide=document.createElement('div');slide.className='slide';
+        var im=document.createElement('img');im.src=url;im.alt=prefix.replace(/-/g,' ')+' photo '+(idx+1);im.loading='lazy';
+        slide.appendChild(im);track.appendChild(slide);
+      });
+      var slides=Array.prototype.slice.call(track.children);
+      var i=0;
+      function go(n){i=(n+slides.length)%slides.length;track.style.transform='translateX(-'+(i*100)+'%)';
+        if(dotsWrap){Array.prototype.forEach.call(dotsWrap.children,function(d,ix){d.setAttribute('aria-current',ix===i?'true':'false');});}}
+      if(dotsWrap){dotsWrap.innerHTML='';slides.forEach(function(_,ix){var b=document.createElement('button');b.setAttribute('aria-label','Go to image '+(ix+1));b.addEventListener('click',function(){go(ix);});dotsWrap.appendChild(b);});}
+      if(prev)prev.onclick=function(){go(i-1);};
+      if(next)next.onclick=function(){go(i+1);};
+      go(0);
+      if(slides.length<=1){if(prev)prev.style.display='none';if(next)next.style.display='none';if(dotsWrap)dotsWrap.style.display='none';}
+      if(countEl)countEl.textContent=slides.length+(slides.length===1?' image':' images');
+    }
+  });
+})();
+</script>
+</body>
+</html>
