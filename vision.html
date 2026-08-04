@@ -26,7 +26,7 @@
   header .mark{font-weight:500;letter-spacing:0.06em;text-decoration:none;color:var(--ink);}
   header nav a{color:var(--ink);text-decoration:none;margin-left:18px;letter-spacing:0.04em;}
   header nav a:hover{color:var(--safety);}
-  @media (max-width:640px){header{flex-direction:column;gap:8px;}header nav a{margin:0 8px;}}
+  @media (max-width:760px){header{flex-direction:column;gap:8px;}header nav a{margin:0 8px;}}
   section{padding:56px 28px;border-top:1.5px solid var(--ink);}
   .anno{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:14px;}
   h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-0.01em;margin-bottom:22px;}
@@ -68,7 +68,6 @@
   .doc-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;}
   .doc-btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--sheet);background:var(--field);padding:12px 20px;}
   .doc-btn:hover{background:var(--safety);color:#fff;}
-  /* competency tag + reflection block */
   .competency{display:flex;align-items:center;gap:12px;border:1.5px solid var(--field);background:rgba(46,83,57,0.05);padding:12px 16px;margin:6px 0 24px;max-width:640px;}
   .competency .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);white-space:nowrap;}
   .competency .val{font-family:var(--display);font-weight:700;font-size:0.98rem;color:var(--field);line-height:1.2;}
@@ -78,7 +77,6 @@
   .reflection .ritem:first-of-type{border-top:none;}
   .reflection .ritem .q{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:5px;}
   .reflection .ritem p{margin:0;max-width:70ch;font-size:0.97rem;}
-  /* landing purpose statement */
   .purpose{border:1.5px solid var(--ink);background:#FDFCF9;padding:22px 26px;margin-top:40px;max-width:760px;}
   .purpose .plbl{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:10px;}
   .purpose p{font-size:1.0rem;color:#2c332f;max-width:70ch;margin:0;}
@@ -161,14 +159,10 @@
     <span class="anno">The future I want to build</span>
     <div class="refl-narrative prose">
       <p>The future I want to build is one where a farmer with forty acres has the same access to automation and technology as a farmer with four thousand. Right now that is not true, and the gap is only widening. Agricultural robots are real and work, but arrive as a half-million-dollar machine sold to operations large enough to afford it, which means the technology that could make farming more precise, efficient, less chemical-intensive, and less physically demanding is available almost exclusively to the operations that need help the least. My vision is the inverse: small, cheap, easily repairable machines that a small farmer can actually buy, operate, and fix themselves &mdash; a machine that a student can actually build, and an engineer can actually understand end to end. In my co-op I have worked with robots and drones designed for small farmers such as the DJI T25 Agras and Naio Technologies OZ, but they still cost upwards of fifty thousand dollars and lack the ability to be repaired by farmers. Not one robot that does everything for someone with capital, but many simple robots that each do one task well to help save farmers time and money.</p>
-
       <p>I have two artifacts that carry this image. The first is Farm in a Box, a patent-pending germination unit made of laser-cut basswood that I designed: a farm that fits on a desk. It costs almost nothing, a child can assemble it, and the sensored version teaches the exact same feedback loop &mdash; measure, decide, actuate &mdash; that runs a hundred-thousand-dollar field robot. The second is the mini bot (still workshopping a name), a single small CNC machine with an automatic tool changer, so that one machine swaps between seeding, weeding, and inspection instead of demanding three. It is designed as a teaching tool for both robotics and agriculture. Together they are the metaphor. A farm in a box says the technology should be affordable and simple enough to work anywhere, and small enough to work with small operations. A tool changer says it should be flexible enough that you only have to buy it once, and that you can make it your own. The wooden stake of a Climate Tree pushed into a field, sending soil data to the cloud, is the same idea in a third form: a low-tech body with a high-tech nervous system, priced so that putting a hundred of them in the ground is a reasonable decision rather than an expensive one.</p>
-
       <p>I do not want to pretend this vision is uncomplicated, because the honest version is more useful than the flattering one. Agricultural automation has historically done the opposite of what I am describing: it has consolidated farms, displaced labour, and pushed small operations out, and there is a real argument that any technology I build will eventually be absorbed into that same pattern regardless of my intent. I take that seriously. But I think the direction of the harm is a direct result of the price and the openness of the machine, not of automation itself. A robot that costs half a million dollars concentrates power by definition, because only wealthy large operations can afford it. A robot that costs two thousand dollars, runs on open-source hardware, and can be repaired with a 3D printer and simple tools does not have that property. I cannot control who buys what I build, but I can control what it costs and whether a person can fix it themselves &mdash; and those two decisions determine most of the rest.</p>
-
       <p>That is why my vision benefits three groups at once. Small and mid-size farmers get tools priced for their actual margins, which keeps them in business and keeps land in the hands of the people working it. Students get to experience real engineering, because the mini bot on a classroom table is not a toy &mdash; it runs on similar control loops to an actual field robot, and a student who builds one has genuinely built a robot. And engineers get a profession that still builds physical things you can see, fix, drive, and that make a positive impact. I first felt that in a high school workshop, driving an FRC robot I had helped build. I want that experience to be common, and I want the machines that come out of it to reach people who could never have afforded them otherwise.</p>
     </div>
-
     <h2 style="margin-top:40px;">Full Essay</h2>
     <object class="doc-embed" data="vision-essay.pdf" type="application/pdf">
       <p style="padding:24px;font-family:var(--mono);font-size:13px;color:var(--steel);">Your browser can&rsquo;t display the embedded PDF. Use the button below to open it.</p>
@@ -182,7 +176,7 @@
       <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
       <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <span class="rev">REV I &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+    <span class="rev">REV J &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
 <script>

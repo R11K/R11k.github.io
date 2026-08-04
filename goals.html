@@ -26,7 +26,7 @@
   header .mark{font-weight:500;letter-spacing:0.06em;text-decoration:none;color:var(--ink);}
   header nav a{color:var(--ink);text-decoration:none;margin-left:18px;letter-spacing:0.04em;}
   header nav a:hover{color:var(--safety);}
-  @media (max-width:640px){header{flex-direction:column;gap:8px;}header nav a{margin:0 8px;}}
+  @media (max-width:760px){header{flex-direction:column;gap:8px;}header nav a{margin:0 8px;}}
   section{padding:56px 28px;border-top:1.5px solid var(--ink);}
   .anno{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:14px;}
   h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-0.01em;margin-bottom:22px;}
@@ -68,7 +68,6 @@
   .doc-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;}
   .doc-btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--sheet);background:var(--field);padding:12px 20px;}
   .doc-btn:hover{background:var(--safety);color:#fff;}
-  /* competency tag + reflection block */
   .competency{display:flex;align-items:center;gap:12px;border:1.5px solid var(--field);background:rgba(46,83,57,0.05);padding:12px 16px;margin:6px 0 24px;max-width:640px;}
   .competency .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);white-space:nowrap;}
   .competency .val{font-family:var(--display);font-weight:700;font-size:0.98rem;color:var(--field);line-height:1.2;}
@@ -78,7 +77,6 @@
   .reflection .ritem:first-of-type{border-top:none;}
   .reflection .ritem .q{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:5px;}
   .reflection .ritem p{margin:0;max-width:70ch;font-size:0.97rem;}
-  /* landing purpose statement */
   .purpose{border:1.5px solid var(--ink);background:#FDFCF9;padding:22px 26px;margin-top:40px;max-width:760px;}
   .purpose .plbl{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:10px;}
   .purpose p{font-size:1.0rem;color:#2c332f;max-width:70ch;margin:0;}
@@ -159,61 +157,19 @@
   </div>
   <section>
     <span class="anno">Overview</span>
-    <div class="prose">
-      <p>These are the SMART personal-development goals I set for my co-op work term at STEM Minds Corp, organized under three of the undergraduate competencies at the core of my program. My placement runs from May through August 2026, so the goals below are actively in progress; each notes where I currently stand.</p>
+    <div class="prose"><p>These are the SMART personal-development goals I set for my co-op work term at STEM Minds Corp, organized under three of the undergraduate competencies at the core of my program. My placement runs from May through August 2026, so the goals below are actively in progress; each notes where I currently stand.</p></div>
+    <div class="goal-block"><div class="comp-head"><span class="num">Competency 01</span><h3>Critical Thinking &amp; Problem Solving</h3></div>
+      <div class="goal-item"><h4>Goal 1.1 &mdash; Develop practical engineering skills in robotics and embedded systems</h4><p>Design, build, and test systems across the robotics and embedded platforms used at STEM Minds: automated grow kits on Micro:bit V2 and Raspberry Pi, small farm robots, Climate Tree sensor nodes, and support for drone operations &mdash; producing a short design rationale for each.</p><span class="goal-status">In progress</span></div>
+      <div class="goal-item"><h4>Goal 1.2 &mdash; Develop systematic troubleshooting and testing skills</h4><p>Build a structured troubleshooting process across sensors, communication links, motor controllers, power systems, and software &mdash; diagnosing and documenting technical issues and tracking recurring failures so they don&rsquo;t recur.</p><span class="goal-status">In progress</span></div>
     </div>
-
-    <div class="goal-block">
-      <div class="comp-head">
-        <span class="num">Competency 01</span>
-        <h3>Critical Thinking &amp; Problem Solving</h3>
-      </div>
-      <div class="goal-item">
-        <h4>Goal 1.1 &mdash; Develop practical engineering skills in robotics and embedded systems</h4>
-        <p>Design, build, and test systems across the robotics and embedded platforms used at STEM Minds: automated grow kits on Micro:bit V2 and Raspberry Pi, small farm robots, Climate Tree sensor nodes, and support for drone operations &mdash; producing a short design rationale for each.</p>
-        <span class="goal-status">In progress</span>
-      </div>
-      <div class="goal-item">
-        <h4>Goal 1.2 &mdash; Develop systematic troubleshooting and testing skills</h4>
-        <p>Build a structured troubleshooting process across sensors, communication links, motor controllers, power systems, and software &mdash; diagnosing and documenting technical issues and tracking recurring failures so they don&rsquo;t repeat.</p>
-        <span class="goal-status">In progress</span>
-      </div>
+    <div class="goal-block"><div class="comp-head"><span class="num">Competency 02</span><h3>Collaboration Across Networks &amp; Leading With Influence</h3></div>
+      <div class="goal-item"><h4>Goal 2.1 &mdash; Build industry-ready project management and documentation skills</h4><p>Manage my own schedule to hit deadlines, track work on Linear, and maintain build logs, test records, and bills of materials so any teammate can pick up my work &mdash; producing formal technical documents reviewed by my supervisor.</p><span class="goal-status">In progress</span></div>
+      <div class="goal-item"><h4>Goal 2.2 &mdash; Improve team coordination and leadership through project ownership</h4><p>Take ownership of at least one significant project or major component from planning through completion, coordinating across software, hardware, and education teammates and leading through influence rather than authority.</p><span class="goal-status">In progress</span></div>
     </div>
-
-    <div class="goal-block">
-      <div class="comp-head">
-        <span class="num">Competency 02</span>
-        <h3>Collaboration Across Networks &amp; Leading With Influence</h3>
-      </div>
-      <div class="goal-item">
-        <h4>Goal 2.1 &mdash; Build industry-ready project management and documentation skills</h4>
-        <p>Manage my own schedule to hit deadlines, track work on Linear, and maintain build logs, test records, and bills of materials so any teammate can pick up my work &mdash; producing formal technical documents reviewed by my supervisor.</p>
-        <span class="goal-status">In progress</span>
-      </div>
-      <div class="goal-item">
-        <h4>Goal 2.2 &mdash; Improve team coordination and leadership through project ownership</h4>
-        <p>Take ownership of at least one significant project or major component from planning through completion, coordinating across software, hardware, and education teammates and leading through influence rather than authority.</p>
-        <span class="goal-status">In progress</span>
-      </div>
+    <div class="goal-block"><div class="comp-head"><span class="num">Competency 03</span><h3>Effective Oral &amp; Written Communication</h3></div>
+      <div class="goal-item"><h4>Goal 3.1 &mdash; Build communication and mentorship skills through student and educator engagement</h4><p>Translate technical documentation into clear instructions and visual explanations for non-technical audiences, and help deliver workshops and classroom sessions on robotics and programming for students and teachers.</p><span class="goal-status">In progress</span></div>
+      <div class="goal-item"><h4>Goal 3.2 &mdash; Improve professional written and oral technical communication</h4><p>Prepare structured status updates, write concise project reports, present progress to the team, and actively seek feedback on my communication so it keeps improving across the term.</p><span class="goal-status">In progress</span></div>
     </div>
-
-    <div class="goal-block">
-      <div class="comp-head">
-        <span class="num">Competency 03</span>
-        <h3>Effective Oral &amp; Written Communication</h3>
-      </div>
-      <div class="goal-item">
-        <h4>Goal 3.1 &mdash; Build communication and mentorship skills through student and educator engagement</h4>
-        <p>Translate technical documentation into clear instructions and visual explanations for non-technical audiences, and help deliver workshops and classroom sessions on robotics and programming for students and teachers.</p>
-        <span class="goal-status">In progress</span>
-      </div>
-      <div class="goal-item">
-        <h4>Goal 3.2 &mdash; Improve professional written and oral technical communication</h4>
-        <p>Prepare structured status updates, write concise project reports, present progress to the team, and actively seek feedback on my communication so it keeps improving across the term.</p>
-        <span class="goal-status">In progress</span>
-      </div>
-    </div>
-
     <p style="font-family:var(--mono);font-size:11px;color:var(--steel);margin-top:8px;letter-spacing:0.04em;">Full SMART goal breakdowns (Specific, Measurable, Attainable, Relevant, Time-Bound) are maintained in my COOP 2100 learning portfolio.</p>
   </section>
   <footer id="contact">
@@ -221,7 +177,7 @@
       <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
       <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <span class="rev">REV I &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+    <span class="rev">REV J &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
 <script>

@@ -26,7 +26,7 @@
   header .mark{font-weight:500;letter-spacing:0.06em;text-decoration:none;color:var(--ink);}
   header nav a{color:var(--ink);text-decoration:none;margin-left:18px;letter-spacing:0.04em;}
   header nav a:hover{color:var(--safety);}
-  @media (max-width:640px){header{flex-direction:column;gap:8px;}header nav a{margin:0 8px;}}
+  @media (max-width:760px){header{flex-direction:column;gap:8px;}header nav a{margin:0 8px;}}
   section{padding:56px 28px;border-top:1.5px solid var(--ink);}
   .anno{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:14px;}
   h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-0.01em;margin-bottom:22px;}
@@ -68,7 +68,6 @@
   .doc-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;}
   .doc-btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--sheet);background:var(--field);padding:12px 20px;}
   .doc-btn:hover{background:var(--safety);color:#fff;}
-  /* competency tag + reflection block */
   .competency{display:flex;align-items:center;gap:12px;border:1.5px solid var(--field);background:rgba(46,83,57,0.05);padding:12px 16px;margin:6px 0 24px;max-width:640px;}
   .competency .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);white-space:nowrap;}
   .competency .val{font-family:var(--display);font-weight:700;font-size:0.98rem;color:var(--field);line-height:1.2;}
@@ -78,7 +77,6 @@
   .reflection .ritem:first-of-type{border-top:none;}
   .reflection .ritem .q{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:5px;}
   .reflection .ritem p{margin:0;max-width:70ch;font-size:0.97rem;}
-  /* landing purpose statement */
   .purpose{border:1.5px solid var(--ink);background:#FDFCF9;padding:22px 26px;margin-top:40px;max-width:760px;}
   .purpose .plbl{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:10px;}
   .purpose p{font-size:1.0rem;color:#2c332f;max-width:70ch;margin:0;}
@@ -218,44 +216,32 @@
     <p class="subhead">Work &amp; Personal Projects</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;">
       <a class="proj-card" href="farmtron.html">
-        <span class="tag">CoreXY + Tool Changer</span>
-        <h3>Farmtron</h3>
-        <p>A CNC-style robot with an automatic tool changer &mdash; motion control skills I taught myself along the way.</p>
+        <span class="tag">CoreXY + Tool Changer</span><h3>Farmtron</h3><p>A CNC-style robot with an automatic tool changer &mdash; motion control skills I taught myself along the way.</p>
         <div class="comp">Critical Thinking &amp; Problem Solving</div>
         <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
       <a class="proj-card" href="farm-in-a-box.html">
-        <span class="tag">Design Registered</span>
-        <h3>Farm in a Box</h3>
-        <p>A laser-cut germination grow kit for education, with a sensor-monitored version in development.</p>
+        <span class="tag">Design Registered</span><h3>Farm in a Box</h3><p>A laser-cut germination grow kit for education, with a sensor-monitored version in development.</p>
         <div class="comp">Initiative &amp; Entrepreneurship</div>
         <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
       <a class="proj-card" href="agritron.html">
-        <span class="tag">Farm Robot MVP</span>
-        <h3>Agritron</h3>
-        <p>An eight-wheeled robot that autonomously drives crop rows and picks plants with a 3-DOF arm.</p>
+        <span class="tag">Farm Robot MVP</span><h3>Agritron</h3><p>An eight-wheeled robot that autonomously drives crop rows and picks plants with a 3-DOF arm.</p>
         <div class="comp">Critical Thinking &amp; Problem Solving</div>
         <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
       <a class="proj-card" href="climate-tree.html">
-        <span class="tag">IoT Monitoring</span>
-        <h3>Climate Tree</h3>
-        <p>Field sensor nodes measuring humidity, temperature, soil moisture, and light, networked over LoRa.</p>
+        <span class="tag">IoT Monitoring</span><h3>Climate Tree</h3><p>Field sensor nodes measuring humidity, temperature, soil moisture, and light, networked over LoRa.</p>
         <div class="comp">Accessing &amp; Analyzing Information</div>
         <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
       <a class="proj-card" href="actuator-tool-bar.html">
-        <span class="tag">Mechanical Design</span>
-        <h3>Actuator Tool Bar</h3>
-        <p>An actuator-driven hitch adapter that brings farming implements to any vehicle with a 2″ receiver.</p>
+        <span class="tag">Mechanical Design</span><h3>Actuator Tool Bar</h3><p>An actuator-driven hitch adapter that brings farming implements to any vehicle with a 2″ receiver.</p>
         <div class="comp">Initiative &amp; Entrepreneurship</div>
         <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
       <a class="proj-card" href="drone-ops.html">
-        <span class="tag">Advanced RPAS</span>
-        <h3>Agricultural Drone Ops</h3>
-        <p>Licensed pilot flying a 50-pound agricultural drone for aerial mapping and spray missions.</p>
+        <span class="tag">Advanced RPAS</span><h3>Agricultural Drone Ops</h3><p>Licensed pilot flying a 50-pound agricultural drone for aerial mapping and spray missions.</p>
         <div class="comp">Agility &amp; Adaptability</div>
         <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
@@ -263,16 +249,12 @@
     <p class="subhead">Course Projects</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;">
       <a class="proj-card" href="pen-plotter.html">
-        <span class="tag">EECS 1011</span>
-        <h3>Pen Plotter</h3>
-        <p>A 3D-printed dot-matrix pen plotter driven by stepper motors and an Arduino, built in first semester.</p>
+        <span class="tag">EECS 1011</span><h3>Pen Plotter</h3><p>A 3D-printed dot-matrix pen plotter driven by stepper motors and an Arduino, built in first semester.</p>
         <div class="comp">Critical Thinking &amp; Problem Solving</div>
         <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
       <a class="proj-card" href="gel-claw.html">
-        <span class="tag">TRON 2000</span>
-        <h3>Gel-Sensing Claw</h3>
-        <p>A robotic claw with a gel-based optical object-detection system, developed in second-year mechatronics.</p>
+        <span class="tag">TRON 2000</span><h3>Gel-Sensing Claw</h3><p>A robotic claw with a gel-based optical object-detection system, developed in second-year mechatronics.</p>
         <div class="comp">Curiosity &amp; Imagination</div>
         <span class="cta">View project <span class="arrow">&rarr;</span></span>
       </a>
@@ -284,7 +266,7 @@
       <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
       <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <span class="rev">REV I &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+    <span class="rev">REV J &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
 <script>

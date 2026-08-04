@@ -26,7 +26,7 @@
   header .mark{font-weight:500;letter-spacing:0.06em;text-decoration:none;color:var(--ink);}
   header nav a{color:var(--ink);text-decoration:none;margin-left:18px;letter-spacing:0.04em;}
   header nav a:hover{color:var(--safety);}
-  @media (max-width:640px){header{flex-direction:column;gap:8px;}header nav a{margin:0 8px;}}
+  @media (max-width:760px){header{flex-direction:column;gap:8px;}header nav a{margin:0 8px;}}
   section{padding:56px 28px;border-top:1.5px solid var(--ink);}
   .anno{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:14px;}
   h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-0.01em;margin-bottom:22px;}
@@ -68,7 +68,6 @@
   .doc-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;}
   .doc-btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--sheet);background:var(--field);padding:12px 20px;}
   .doc-btn:hover{background:var(--safety);color:#fff;}
-  /* competency tag + reflection block */
   .competency{display:flex;align-items:center;gap:12px;border:1.5px solid var(--field);background:rgba(46,83,57,0.05);padding:12px 16px;margin:6px 0 24px;max-width:640px;}
   .competency .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);white-space:nowrap;}
   .competency .val{font-family:var(--display);font-weight:700;font-size:0.98rem;color:var(--field);line-height:1.2;}
@@ -78,7 +77,6 @@
   .reflection .ritem:first-of-type{border-top:none;}
   .reflection .ritem .q{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:5px;}
   .reflection .ritem p{margin:0;max-width:70ch;font-size:0.97rem;}
-  /* landing purpose statement */
   .purpose{border:1.5px solid var(--ink);background:#FDFCF9;padding:22px 26px;margin-top:40px;max-width:760px;}
   .purpose .plbl{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:10px;}
   .purpose p{font-size:1.0rem;color:#2c332f;max-width:70ch;margin:0;}
@@ -159,9 +157,7 @@
   </div>
   <section>
     <span class="anno">Profile</span>
-    <div class="prose">
-      <p>Motivated Mechatronics Engineering student with hands-on experience in CAD design, mechanical drafting, prototyping, and manufacturing support. Skilled in SolidWorks, fixture and tool design, technical documentation, and continuous improvement initiatives &mdash; able to support engineering teams from concept design through production, with strong organizational skills and a safety-first mindset.</p>
-    </div>
+    <div class="prose"><p>Motivated Mechatronics Engineering student with hands-on experience in CAD design, mechanical drafting, prototyping, and manufacturing support. Skilled in SolidWorks, fixture and tool design, technical documentation, and continuous improvement initiatives &mdash; able to support engineering teams from concept design through production, with strong organizational skills and a safety-first mindset.</p></div>
     <div class="fact-grid">
       <div class="cell"><span class="label">Education</span><span class="val">York University &mdash; Mechatronics, 2nd Year</span></div>
       <div class="cell"><span class="label">Licence</span><span class="val">Remotely Piloted Aircraft, Advanced Ops</span></div>
@@ -171,32 +167,20 @@
   <section>
     <span class="anno">Work Experience</span>
     <h2>Where I&rsquo;ve worked</h2>
-    <div class="role">
-      <div class="role-head"><h3>Tech &amp; Robotics Lead</h3><span class="dates">Apr 2024 &mdash; Present</span></div>
-      <div class="org">STEM Minds Corp</div>
-      <ul><li>Supported engineering projects involving robotic systems (Farmbot, Naio OZ), mechanical assemblies, and CAD-based design.</li><li>Created part designs, assemblies, and technical documentation using SolidWorks and Fusion 360.</li><li>Supported prototype builds, testing, and iterative design improvements.</li><li>Coordinated equipment setup, maintenance, and documentation for fabrication tools.</li><li>Led continuous improvement initiatives for lab organization, safety, and workflow efficiency.</li><li>Delivered technical demonstrations and supported cross-functional project teams.</li></ul>
-    </div>
-    <div class="role">
-      <div class="role-head"><h3>Junior STEM Coach</h3><span class="dates">Sept 2021 &mdash; Mar 2024</span></div>
-      <div class="org">STEM Minds Corp</div>
-      <ul><li>Provided hands-on support for fabrication equipment including CNC machines, 3D printers, and laser cutters.</li><li>Maintained technical records, drawings, and equipment documentation.</li><li>Assisted with fixture setup, troubleshooting, and process optimization.</li><li>Supported instructors and students in applied mechanical and robotics projects.</li><li>Ensured equipment usage complied with Health &amp; Safety standards.</li></ul>
-    </div>
+    <div class="role"><div class="role-head"><h3>Tech &amp; Robotics Lead</h3><span class="dates">Apr 2024 &mdash; Present</span></div><div class="org">STEM Minds Corp</div>
+      <ul><li>Supported engineering projects involving robotic systems (Farmbot, Naio OZ), mechanical assemblies, and CAD-based design.</li><li>Created part designs, assemblies, and technical documentation using SolidWorks and Fusion 360.</li><li>Supported prototype builds, testing, and iterative design improvements.</li><li>Coordinated equipment setup, maintenance, and documentation for fabrication tools.</li><li>Led continuous improvement initiatives for lab organization, safety, and workflow efficiency.</li><li>Delivered technical demonstrations and supported cross-functional project teams.</li></ul></div>
+    <div class="role"><div class="role-head"><h3>Junior STEM Coach</h3><span class="dates">Sept 2021 &mdash; Mar 2024</span></div><div class="org">STEM Minds Corp</div>
+      <ul><li>Provided hands-on support for fabrication equipment including CNC machines, 3D printers, and laser cutters.</li><li>Maintained technical records, drawings, and equipment documentation.</li><li>Assisted with fixture setup, troubleshooting, and process optimization.</li><li>Supported instructors and students in applied mechanical and robotics projects.</li><li>Ensured equipment usage complied with Health &amp; Safety standards.</li></ul></div>
   </section>
   <section>
     <span class="anno">Entrepreneurship</span>
     <h2>Things I&rsquo;ve started &amp; shipped</h2>
-    <div class="role">
-      <div class="role-head"><h3>Custom Steel Tractor Implements</h3><span class="dates">2025</span></div>
-      <ul><li>Designed mechanical components and assemblies to optimize cultivation processes, focusing on durability, manufacturability, and cost efficiency.</li></ul>
-    </div>
-    <div class="role">
-      <div class="role-head"><h3>Agritron &mdash; Farm Robot MVP</h3><span class="dates">2024</span></div>
-      <ul><li>Designed and prototyped mechanical systems and robotic assemblies; supported CAD modeling, fabrication, and iterative testing.</li></ul>
-    </div>
-    <div class="role">
-      <div class="role-head"><h3>Farm-in-a-Box Grow Kit</h3><span class="dates">2024</span></div>
-      <ul><li>Invented and registered an educational product involving mechanical design, prototyping, and production planning.</li></ul>
-    </div>
+    <div class="role"><div class="role-head"><h3>Custom Steel Tractor Implements</h3><span class="dates">2025</span></div>
+      <ul><li>Designed mechanical components and assemblies to optimize cultivation processes, focusing on durability, manufacturability, and cost efficiency.</li></ul></div>
+    <div class="role"><div class="role-head"><h3>Agritron &mdash; Farm Robot MVP</h3><span class="dates">2024</span></div>
+      <ul><li>Designed and prototyped mechanical systems and robotic assemblies; supported CAD modeling, fabrication, and iterative testing.</li></ul></div>
+    <div class="role"><div class="role-head"><h3>Farm-in-a-Box Grow Kit</h3><span class="dates">2024</span></div>
+      <ul><li>Invented and registered an educational product involving mechanical design, prototyping, and production planning.</li></ul></div>
   </section>
   <section>
     <span class="anno">Capabilities</span>
@@ -213,9 +197,7 @@
       <div class="col"><h3>Robotics &amp; Community</h3><ul><li>Member, York University Robotics Society</li><li>Lead, FTC Robotics Team (2023)</li><li>Mentor / Coach, FLL Robotics Team (2024, 2025)</li><li>Active FIRST Robotics Alumni (Team 4343)</li></ul></div>
       <div class="col"><h3>Volunteering</h3><ul><li>Community events with STEM Minds</li><li>Volunteer at a local church</li></ul></div>
     </div>
-    <p style="margin-top:24px;">
-      <a class="resume-btn" href="resume.pdf" target="_blank" rel="noopener">Download Full Resume (PDF)</a>
-    </p>
+    <p style="margin-top:24px;"><a class="resume-btn" href="resume.pdf" target="_blank" rel="noopener">Download Full Resume (PDF)</a></p>
     <p style="font-family:var(--mono);font-size:11px;color:var(--steel);margin-top:10px;letter-spacing:0.04em;">References available on request.</p>
   </section>
   <footer id="contact">
@@ -223,7 +205,7 @@
       <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
       <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <span class="rev">REV I &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+    <span class="rev">REV J &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
 <script>

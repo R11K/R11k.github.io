@@ -26,7 +26,7 @@
   header .mark{font-weight:500;letter-spacing:0.06em;text-decoration:none;color:var(--ink);}
   header nav a{color:var(--ink);text-decoration:none;margin-left:18px;letter-spacing:0.04em;}
   header nav a:hover{color:var(--safety);}
-  @media (max-width:640px){header{flex-direction:column;gap:8px;}header nav a{margin:0 8px;}}
+  @media (max-width:760px){header{flex-direction:column;gap:8px;}header nav a{margin:0 8px;}}
   section{padding:56px 28px;border-top:1.5px solid var(--ink);}
   .anno{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:14px;}
   h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-0.01em;margin-bottom:22px;}
@@ -68,7 +68,6 @@
   .doc-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;}
   .doc-btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--sheet);background:var(--field);padding:12px 20px;}
   .doc-btn:hover{background:var(--safety);color:#fff;}
-  /* competency tag + reflection block */
   .competency{display:flex;align-items:center;gap:12px;border:1.5px solid var(--field);background:rgba(46,83,57,0.05);padding:12px 16px;margin:6px 0 24px;max-width:640px;}
   .competency .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);white-space:nowrap;}
   .competency .val{font-family:var(--display);font-weight:700;font-size:0.98rem;color:var(--field);line-height:1.2;}
@@ -78,7 +77,6 @@
   .reflection .ritem:first-of-type{border-top:none;}
   .reflection .ritem .q{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--steel);display:block;margin-bottom:5px;}
   .reflection .ritem p{margin:0;max-width:70ch;font-size:0.97rem;}
-  /* landing purpose statement */
   .purpose{border:1.5px solid var(--ink);background:#FDFCF9;padding:22px 26px;margin-top:40px;max-width:760px;}
   .purpose .plbl{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:10px;}
   .purpose p{font-size:1.0rem;color:#2c332f;max-width:70ch;margin:0;}
@@ -169,20 +167,15 @@
   <section>
     <span class="anno">Description</span>
     <span class="work-badge">Course project &middot; EECS 1011: Computational Thinking through Mechatronics</span>
-    <div class="competency">
-      <span class="lbl">Undergraduate&nbsp;Competency</span>
-      <span class="val">Critical Thinking &amp; Problem Solving</span>
-    </div>
+    <div class="competency"><span class="lbl">Undergraduate&nbsp;Competency</span><span class="val">Critical Thinking &amp; Problem Solving</span></div>
     <div class="prose">
       <p>This was my first-semester course project for <strong>EECS 1011: Computational Thinking through Mechatronics</strong>. It is a pen plotter that prints images: MATLAB shrinks an input image and reads a value for each pixel, generates a set of X/Y/Z move instructions, and streams them to an Arduino UNO, which plots each point.</p>
       <p>The X axis is driven by a stepper motor and lead screw, the Y axis by a stepper motor and rubber wheels that pull the paper, and the Z axis by a micro servo that lifts and lowers the pen. Every 3D-printed component &mdash; the upper guide rail, the tool end with its Sharpie holder and servo mount, and the end blocks housing the steppers, bearing, and lead screw &mdash; was designed by me in Fusion 360.</p>
     </div>
-
     <h2 style="margin-top:40px;">Demonstration</h2>
     <div style="max-width:820px;">
       <div class="video-embed"><iframe src="https://www.youtube.com/embed/YSUp2y31JlA" title="Pen plotter demonstration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     </div>
-
     <h2 style="margin-top:40px;">Project Report</h2>
     <object class="doc-embed" data="pen-plotter-report.pdf" type="application/pdf">
       <p style="padding:24px;font-family:var(--mono);font-size:13px;color:var(--steel);">Your browser can&rsquo;t display the embedded PDF. Use the button below to open it.</p>
@@ -190,7 +183,6 @@
     <div class="doc-actions">
       <a class="doc-btn" href="pen-plotter-report.pdf" target="_blank" rel="noopener">Open PDF in New Tab</a>
     </div>
-
     <div class="reflection">
       <div class="rhead">Reflection</div>
       <div class="ritem"><span class="q">What I learned</span><p>I learned to translate a computational idea all the way into moving hardware: shrinking an image in MATLAB, converting pixels into coordinated X/Y/Z motion, and streaming that to an Arduino &mdash; while designing every printed mechanical part myself in Fusion 360.</p></div>
@@ -203,7 +195,7 @@
       <a href="mailto:rik.bidani@gmail.com">rik.bidani@gmail.com</a>
       <a href="https://linkedin.com/in/rik-bidani-34961131b/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <span class="rev">REV I &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
+    <span class="rev">REV J &mdash; 2026 &mdash; DRAWN BY R. BIDANI</span>
   </footer>
 </div>
 <script>
