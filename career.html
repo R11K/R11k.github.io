@@ -56,6 +56,10 @@
   .car-dots button{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;cursor:pointer;padding:0;}
   .car-dots button[aria-current="true"]{background:var(--field);border-color:var(--field);}
   .car-count{font-family:var(--mono);font-size:11px;color:var(--steel);text-align:right;padding:6px 12px 0;letter-spacing:0.1em;}
+  .gen-block{margin-bottom:42px;}
+  .gen-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:8px;border-bottom:1.5px solid var(--ink);}
+  .gen-head .gen-num{font-family:var(--display);font-weight:800;font-size:1.15rem;text-transform:uppercase;letter-spacing:0.02em;}
+  .gen-head .gen-sub{font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:0.04em;}
   .video-embed{position:relative;width:100%;aspect-ratio:16/9;border:1.5px solid var(--ink);}
   .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
   .video-embed-vert{position:relative;width:100%;max-width:340px;aspect-ratio:9/16;border:1.5px solid var(--ink);margin:0 auto;}
@@ -107,7 +111,7 @@
   .resume-btn:hover{background:var(--safety);}
   .proj-hint{font-family:var(--mono);font-size:12px;letter-spacing:0.06em;color:var(--steel);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
   .proj-hint::before{content:"\2192";color:var(--safety);font-size:14px;}
-  .proj-card{text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1.5px solid var(--ink);padding:18px 18px 16px;background:#FDFCF9;transition:transform .16s ease,box-shadow .16s ease,background .16s ease;}
+  .proj-card{position:relative;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1.5px solid var(--ink);padding:18px 18px 16px;background:#FDFCF9;transition:transform .16s ease,box-shadow .16s ease,background .16s ease;}
   .proj-card:hover{transform:translateY(-3px);box-shadow:5px 5px 0 var(--ink);background:#fff;}
   .proj-card:hover h3{color:var(--safety);}
   .proj-card .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--safety);display:block;margin-bottom:8px;}
@@ -118,6 +122,16 @@
   .proj-card:hover .cta{color:var(--safety);}
   .proj-card .cta .arrow{transition:transform .16s ease;}
   .proj-card:hover .cta .arrow{transform:translateX(4px);}
+  .proj-card .card-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .2s ease;z-index:0;pointer-events:none;}
+  .proj-card.has-hover-img:hover .card-bg{opacity:1;}
+  .proj-card > *:not(.card-bg){position:relative;z-index:1;}
+  .proj-card.has-hover-img:hover h3,
+  .proj-card.has-hover-img:hover p,
+  .proj-card.has-hover-img:hover .tag,
+  .proj-card.has-hover-img:hover .comp,
+  .proj-card.has-hover-img:hover .cta{color:#ffffff;}
+  .proj-card.has-hover-img:hover .comp,
+  .proj-card.has-hover-img:hover .cta{border-top-color:rgba(255,255,255,0.35);}
   .subhead{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel);margin:38px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--line);}
   .goal-block{border:1.5px solid var(--ink);margin-bottom:22px;background:#FDFCF9;}
   .goal-block .comp-head{padding:20px 24px;border-bottom:1.5px solid var(--ink);}
@@ -132,7 +146,6 @@
   .refl-narrative{max-width:72ch;}
   .refl-narrative h3{font-family:var(--display);font-weight:700;font-size:1.15rem;margin:30px 0 10px;}
   .refl-narrative p{margin-bottom:1.1em;}
-  .draft-note{font-family:var(--mono);font-size:11px;color:var(--steel);letter-spacing:0.04em;border:1px dashed var(--steel);padding:12px 16px;margin-bottom:26px;max-width:72ch;}
 </style>
 </head>
 <body>
@@ -194,7 +207,7 @@
     <span class="anno">Beyond Work</span>
     <h2>Involvement</h2>
     <div class="skill-cols">
-      <div class="col"><h3>Robotics &amp; Community</h3><ul><li>Member, York University Robotics Society</li><li>Lead, FTC Robotics Team (2023)</li><li>Mentor / Coach, FLL Robotics Team (2024, 2025)</li><li>Active FIRST Robotics Alumni (Team 4343)</li></ul></div>
+      <div class="col"><h3>Robotics &amp; Community</h3><ul><li>Member, York University Robotics Society</li><li>Founder &amp; Lead, <a href="ftc.html">One Way Robotics &mdash; FTC Team 24384</a> (2023)</li><li>Mentor / Coach, FLL Robotics Team (2024, 2025)</li><li>Active FIRST Robotics Alumni (Team 4343)</li></ul></div>
       <div class="col"><h3>Volunteering</h3><ul><li>Community events with STEM Minds</li><li>Volunteer at a local church</li></ul></div>
     </div>
     <p style="margin-top:24px;"><a class="resume-btn" href="resume.pdf" target="_blank" rel="noopener">Download Full Resume (PDF)</a></p>
@@ -231,41 +244,57 @@
   });
   document.querySelectorAll('[data-carousel]').forEach(function(car){
     var prefix=car.getAttribute('data-prefix');
-    var max=parseInt(car.getAttribute('data-max'),10)||1;
+    var cap=parseInt(car.getAttribute('data-max'),10)||120;
     var track=car.querySelector('.track');
     var dotsWrap=car.querySelector('.car-dots');
     var prev=car.querySelector('.prev'), next=car.querySelector('.next');
     var countEl=document.querySelector('[data-count-for="'+prefix+'"]');
-    var found=new Array(max).fill(null);
-    var done=0;
-    for(var n=1;n<=max;n++){
-      (function(idx){
-        findImage(prefix+'-'+idx, function(url){
-          found[idx-1]=url;
-          if(++done===max) build();
-        });
-      })(n);
+    var urls=[]; var i=0; var started=false;
+    function show(n){
+      i=(n+urls.length)%urls.length;
+      track.style.transform='translateX(-'+(i*100)+'%)';
+      if(dotsWrap){Array.prototype.forEach.call(dotsWrap.children,function(d,ix){d.setAttribute('aria-current',ix===i?'true':'false');});}
     }
-    function build(){
-      var urls=found.filter(function(u){return u;});
-      track.innerHTML='';
+    function addSlide(url){
+      if(!started){track.innerHTML='';started=true;}
+      var slide=document.createElement('div');slide.className='slide';
+      var im=document.createElement('img');im.src=url;im.alt=prefix.replace(/-/g,' ')+' photo '+urls.length;im.loading='lazy';
+      slide.appendChild(im);track.appendChild(slide);
+      if(countEl)countEl.textContent=urls.length+(urls.length===1?' image':' images');
+    }
+    function finalize(){
       if(urls.length===0){car.style.display='none';if(countEl)countEl.style.display='none';return;}
-      urls.forEach(function(url,idx){
-        var slide=document.createElement('div');slide.className='slide';
-        var im=document.createElement('img');im.src=url;im.alt=prefix.replace(/-/g,' ')+' photo '+(idx+1);im.loading='lazy';
-        slide.appendChild(im);track.appendChild(slide);
-      });
-      var slides=Array.prototype.slice.call(track.children);
-      var i=0;
-      function go(n){i=(n+slides.length)%slides.length;track.style.transform='translateX(-'+(i*100)+'%)';
-        if(dotsWrap){Array.prototype.forEach.call(dotsWrap.children,function(d,ix){d.setAttribute('aria-current',ix===i?'true':'false');});}}
-      if(dotsWrap){dotsWrap.innerHTML='';slides.forEach(function(_,ix){var b=document.createElement('button');b.setAttribute('aria-label','Go to image '+(ix+1));b.addEventListener('click',function(){go(ix);});dotsWrap.appendChild(b);});}
-      if(prev)prev.onclick=function(){go(i-1);};
-      if(next)next.onclick=function(){go(i+1);};
-      go(0);
-      if(slides.length<=1){if(prev)prev.style.display='none';if(next)next.style.display='none';if(dotsWrap)dotsWrap.style.display='none';}
-      if(countEl)countEl.textContent=slides.length+(slides.length===1?' image':' images');
+      if(dotsWrap){dotsWrap.innerHTML='';urls.forEach(function(_,ix){var b=document.createElement('button');b.setAttribute('aria-label','Go to image '+(ix+1));b.addEventListener('click',function(){show(ix);});dotsWrap.appendChild(b);});}
+      if(prev)prev.onclick=function(){show(i-1);};
+      if(next)next.onclick=function(){show(i+1);};
+      show(0);
+      if(urls.length<=1){if(prev)prev.style.display='none';if(next)next.style.display='none';if(dotsWrap)dotsWrap.style.display='none';}
     }
+    function probe(n){
+      if(n>cap){finalize();return;}
+      findImage(prefix+'-'+n, function(url){
+        if(url){urls.push(url);addSlide(url);probe(n+1);}
+        else{finalize();}
+      });
+    }
+    probe(1);
+  });
+
+  // Homepage project cards: darkened background image on hover
+  document.querySelectorAll('.proj-card[data-hover-img]').forEach(function(card){
+    var base=card.getAttribute('data-hover-img');
+    if(!base) return;
+    var bg=document.createElement('div');
+    bg.className='card-bg';
+    card.insertBefore(bg, card.firstChild);
+    findImage(base, function(url){
+      if(url){
+        bg.style.backgroundImage="linear-gradient(rgba(20,26,23,0.55),rgba(20,26,23,0.55)), url('"+url+"')";
+        card.classList.add('has-hover-img');
+      } else if(bg.parentNode){
+        bg.parentNode.removeChild(bg);
+      }
+    });
   });
 })();
 </script>
